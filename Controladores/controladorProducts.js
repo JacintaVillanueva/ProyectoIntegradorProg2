@@ -8,13 +8,10 @@ return res.render ('product',{product: productosP.lista})
 }, 
 
 create: function (req, res) {
-return res.render ('product',{product: productosP})
+return res.render ('productAdd',{product: productosP.lista})
 
 },
 
-show: function (req, res) {
-    return res.render ('product',{product: productosP})
-}
 
 }
 

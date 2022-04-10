@@ -1,13 +1,11 @@
-let express = require('../db/productos');
+let resultadosR= require('../db/productos');
 
-const searchPraducts = {
-
-
+const searchProducts = {
 
 
-
-
-
+index: function (req, res) {
+    res.render ('searchResults', { searchResults: resultadosR});
+}
 
 
 
@@ -17,4 +15,4 @@ const searchPraducts = {
 
 
 
-module.exports = express;
+module.exports = searchProducts;
