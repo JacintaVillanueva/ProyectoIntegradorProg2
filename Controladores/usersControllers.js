@@ -13,6 +13,10 @@ return res.render ('profile-edit',{profileEdit: usuariosU.lista})
 
 },
 
+login: function (req,res){
+    
+}
+
 
 }
 
