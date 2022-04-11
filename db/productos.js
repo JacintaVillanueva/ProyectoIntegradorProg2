@@ -52,7 +52,7 @@ let productos = {
         },
         {
             id: 8,
-            nombreDelProducto: "rompeta En Bb Dorada Lincoln Wind + Estuche Cuero Jytr1401",
+            nombreDelProducto: "Trompeta En Bb Dorada Lincoln Wind + Estuche Cuero Jytr1401",
             imagen: "/images/img8.jpg",
             descripcion: "Modelo JYTR1401, Afinada en Bb (si bemol), Cuerpo yellow brass, 3 pistones de acero inoxidable y Diámetro de campana de 125 mm.",
             fechaDeCarga: "28/04/2022",
