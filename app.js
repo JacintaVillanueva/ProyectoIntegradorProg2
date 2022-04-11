@@ -8,6 +8,7 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 let productosRouter = require('./routes/product');
 let searchRouter = require('./routes/search-results');
+const usersController = require('./Controladores/usersControllers');
 
 var app = express();
 
