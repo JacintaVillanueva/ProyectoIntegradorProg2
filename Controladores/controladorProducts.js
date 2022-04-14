@@ -13,10 +13,10 @@ return res.render ('productAdd',{product: productosP.lista})
 
 },
 
-/* comentarios: function (req, res) {
+comentarios: function (req, res) {
     return res.render ('product',{comments: comentariosC.lista})
 }
- */
+
 }
 
 module.exports = productController;
