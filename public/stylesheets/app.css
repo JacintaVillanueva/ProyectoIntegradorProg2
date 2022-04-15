@@ -64,7 +64,38 @@ hr {
   border-bottom: solid 1px var(--light-gray);
 }
 
-
+.formularioLogin{
+  width:300px;
+	padding:16px;
+	border-radius:10px;
+	margin:auto;
+	background-color:#ccc;
+}
+.formulario{
+  width:72px;
+	font-weight:bold;
+	display:inline-block;
+  width:180px;
+	padding:3px 10px;
+	border:1px solid #f6f6f6;
+	border-radius:3px;
+	background-color:#f6f6f6;
+	margin:8px 0;
+	display:inline-block;
+}
+.formularioBoton{
+  width:100%;
+	padding:8px 16px;
+	margin-top:32px;
+	border:1px solid #000;
+	border-radius:5px;
+	display:block;
+	color:#fff;
+	background-color:#000;
+}
+.formularioBoton:hover{
+cursor: pointer;
+}
 /*====== Main Header ======*/
 .main-header {
   padding: 15px 0;
@@ -73,7 +104,7 @@ hr {
 
 .main-header_home-link,
 .main-header_credit-link {
-  display: block;
+  display: flex;
 }
 
 .main-header_credit-link {

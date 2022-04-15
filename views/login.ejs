@@ -13,17 +13,20 @@
 			</div>
 			<!-- Show the "ultimos" products -->
 			<h2 class="col-12"> 
-				<form>
-					<div class="formularioLogin">
-					  <label for="usuario" class="visually-hidden">Usuario</label>
-					  <input type="text" readonly class="form-control-plaintext" id="staticEmail2" value="email@usuario.com">
+				<form action="" method="get" class="formularioLogin">
+					<div>
+						<label for="usuario" class="formulario">Usuario:</label>
+						<input id="usuario" type="text" name="usuario" placeholder="Escribe tu usuario">
 					</div>
-					<div class="formularioLogin">
-					  <label for="inputPassword2" class="visually-hidden">Contraseña</label>
-					  <input type="password" class="form-control" id="inputPassword2" placeholder="Password">
+					<div>
+						<label for="contraseña" class="formulario">Contraseña:</label>
+						<input id="contraseña" type="text" name="contraseña" placeholder="Escribe tu contraseña">
 					</div>
-					<div class="formularioLogin">
-					  <button type="submit" class="btn btn-primary mb-3">Recordarme</button>
+					<div>
+						<button type="submit" class="formularioBoton">Iniciar sesión</button>
+					</div>
+					<div>
+						<button type="submit" class="formularioBoton">Recordarme</button>
 					</div>
 				  </form>
 			</h2>
