@@ -387,6 +387,16 @@ cursor: pointer;
   display: flex;
   flex-direction: column;
 }
+.comentariosC {
+display: flex;
+justify-content: flex-end;
+flex-direction:column;
+align: right;
+
+
+
+}
+
 .small {
   font-size: 1.8em;
   color: var(--green);

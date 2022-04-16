@@ -9,10 +9,12 @@
 			<div class="col-12">
 				<h2 class="products-title">Agregar productos</h2>
 			</div>
+
 			<!-- Show the "ultimos" products -->
 			<h2 class="col-12">
 				<form action="/my-handling-form-page" method="post">
-					<ul>
+
+					<ul class="formularioRegister">
 						<li>
 							<label for="name">Nombre del producto</label>
 							<input type="text" id="name" name="user_name">
@@ -20,15 +22,25 @@
 
 						<li>
 							<label for="img">Imagen del producto</label>
-							<file id="img" type="image/" name="user_file"></file>
+							<input type="file" id="" name="user_file"> 
 
 						</li>
-
+						<li>
+						<label for="start">Fecha de carga:</label>
+						<input type="date" id="start" name="user_date">
+						
+						</li>
 						<li>
 							<label for="msg">Descripción:</label>
 							<textarea id="msg" name="user_message"></textarea>
 						</li>
+
+						<li class="buy-now-button">
+						<a href="/productos/add"><input type="button" value="Agregar Producto"></a>
+						</li>
 					</ul>
+					
+
 				</form>
 			</h2>
 
