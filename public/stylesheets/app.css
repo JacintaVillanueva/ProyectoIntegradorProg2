@@ -438,14 +438,14 @@ cursor: pointer;
 .comments {
   padding: 30px 15px 15px 0;
 }
-.comments article{
+.comments-article{
   margin-bottom: 7.5px;
   padding-bottom: 7.5px;
   border-bottom: 1px solid #dcdcdc;
   display: flex;
   justify-content: space-between;
 }
-.comments img{
+.comments-img{
   width: 40px;
   height: 40px;
   border-radius: 50%;

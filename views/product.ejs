@@ -27,20 +27,18 @@
 
 						<div class="col-12 col-lg-4">
 							<section class="comments">
-								<article>
-									<img src="<%= comments[i].imagenDelPerfil %> " alt="">
+								<article class="">
+									<img class="comments-img" src="<%= comments[i].imagenDelPerfil %> " alt="">
 									<div class="data">
 										<p class="user">
 											<strong> <a href="">
 													<%= comments[i].nombreDelUsuario %>
 												</a> </strong>
-											<%= comments[i].textoDelComentario %>
+												<%= comments[i].textoDelComentario %>
 										</p>
 									</div>
 								</article>
 							</section>
-							
-							
 						</div>
 						<%} %>
 						<form class="form" action="" method="POST">
