@@ -13,7 +13,7 @@ let comentarios = {
         },
         {
             nombreDelUsuario: 'Tomas',
-            textoDelComentario: 'El teclado buenísimo, tenía miedo de su calidad ya que al ser midi, con tantas octavas y tan barato a comparación de otros teclados me generaba desconfianza. Cuando lo probé me sorprendí del sonido muy nítido, bastantes tonos y con buen efecto, también el volumen es genial! lo único malo es que hay que comprar el enchufe por separado pero el resto 10/10 en calidad',
+            textoDelComentario: 'El teclado buenísimo, tenía miedo de su calidad ya que al ser midi, con tantas octavas y tan barato a comparación de otros teclados me generaba desconfianza.',
             imagenDelPerfil: 'https://upload.wikimedia.org/wikipedia/commons/c/c1/Lionel_Messi_20180626.jpg',
         },
         {

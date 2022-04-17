@@ -23,10 +23,12 @@
 							fabricante internacional y sus productos representan un ícono cultural.</p>
 					</article>
 
-					<% for (let i=0; i <comments.length; i++) {%>
+
+						
 
 						<div class="col-12 col-lg-4">
-							<section class="comentariosC">
+							<section >
+								<% for (let i=0; i <comments.length; i++) {%>
 								<article class="comments">
 									<img class="comments-img" src="<%= comments[i].imagenDelPerfil %> " alt="">
 									<div class="data">
@@ -39,12 +41,13 @@
 									</div>
 								</article>
 							</section>
+							<%} %>
+							<form class="form" action="" method="POST">
+								<input class="form-input" type="text" value="" placeholder="Agregar comentario">
+								<button type="submit" class="buy-now-button">AGREGAR COMENTARIO</button>
+							</form>
 						</div>
-						<%} %>
-						<form class="form" action="" method="POST">
-							<input class="form-input" type="text" value="" placeholder="Agregar comentario">
-							<button type="submit" class="buy-now-button">AGREGAR COMENTARIO</button>
-						</form>
+						
 				</div>
 			</div>
 		</div>
