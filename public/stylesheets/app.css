@@ -80,7 +80,7 @@ hr {
   padding:3px 10px;
   border-radius:1px;
   font-weight:bold;
-  
+  display: inline-block;
   
 }
 .editarPerfil{
@@ -247,6 +247,14 @@ cursor: pointer;
 
 .product-box_image {
   border-bottom: 1px solid var(--light-gray);
+ 
+  
+}
+
+.imagen{
+  height: 200px;
+  width: 300px;
+  
   
 }
 
@@ -256,7 +264,7 @@ cursor: pointer;
   display: flex;
   align-items: center;
   flex-wrap: wrap;
- 
+  
   
 }
 
@@ -266,6 +274,9 @@ cursor: pointer;
   margin: 0;
   color: orangered;
   font-weight: normal;
+  height: 150px;
+  width: 250px;
+  
   
 }
 
@@ -449,10 +460,11 @@ box-align: right;
   background-color: orangered;
   font-size: 1.6em;
   color: #ffffff;
-  padding: 15px;
+  padding: 10px;
   border-radius: 8px;
   border: none;
   margin-bottom: 15px;
+  cursor: pointer;
 }
 
 .action-button {

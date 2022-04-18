@@ -20,7 +20,7 @@
 				<section class="product-box">
 					<a href="/productos/especifico/<%= products[i].id %>">
 						<figure class="product-box_image">
-							<img src="<%=products[i].imagen %>" alt="cafetera moulinex">
+							<img class="imagen" src="<%=products[i].imagen %>" alt="cafetera moulinex">
 						</figure>
 						<article class="product-box_data">
 							<h2> <%= products[i].nombreDelProducto %></h2>
@@ -46,12 +46,12 @@
 						<section class="product-box">
 							<a href="/productos/especifico/<%= products[i].id %>">
 								<figure class="product-box_image">
-									<img src="<%=products[i].imagen %>" alt="cafetera moulinex">
+									<img class="imagen" src="<%=products[i].imagen %>" alt="cafetera moulinex">
 								</figure>
 								<article class="product-box_data">
 									<h2> <%= products[i].nombreDelProducto %></h2>
 									<p><%= products[i].descripcion %></p>
-									<p><%= products[i].fechaDeCarga %></p>
+									<p><%= products[i].fechaDeCarga %></p> 
 								</article>
 							</a>
 						</section>
