@@ -1,8 +1,8 @@
-const db = require('index.js');
 
-//module.exports = (sequelize, dataTypes)=> {
 
-const alias = 'user'
+module.exports = (sequelize, dataTypes)=> {
+
+const alias = 'User'
 
 const cols = {
 
@@ -58,8 +58,7 @@ const config = {
 
 const users = sequelize.define(alias, cols, config)
 
-//return users
+return users
 
-//}
+}
 
-module.exports = users 
