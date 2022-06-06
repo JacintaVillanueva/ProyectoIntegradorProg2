@@ -1,5 +1,6 @@
 const db = require('index.js');
 
+//module.exports = (sequelize, dataTypes)=> {
 const alias = 'comentario'
 
 const cols = {
@@ -24,5 +25,9 @@ const config = {
 
 
 const comentarios = sequelize.define(alias, cols, config)
+
+//return comentarios
+
+//}
 
 module.exports = comentarios
