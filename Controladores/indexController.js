@@ -1,4 +1,4 @@
-let productos = require('../db/productos')
+let productos = require('../db/models/Productos.js');
 
 const indexController = {
     index: function(req, res ) {

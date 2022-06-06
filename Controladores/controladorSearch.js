@@ -1,4 +1,4 @@
-let resultadosR= require('../db/productos');
+let resultadosR= require('../db/models/Productos.js');
 
 const searchProducts = {
 

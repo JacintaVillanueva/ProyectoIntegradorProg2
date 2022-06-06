@@ -1,5 +1,5 @@
-let productosP = require('../db/productos');
-let comentariosC = require('../db/comentarios');
+let productosP = require('../db/models/Productos.js');
+let comentariosC = require('../db/models/Comentarios.js');
 
 const productController = {
 

@@ -1,5 +1,4 @@
-let usuariosU = require('../db/usuarios');
-
+let usuariosU = require('../db/models/Users.js');
 
 const usersController = {
 

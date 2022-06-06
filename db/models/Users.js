@@ -1,6 +1,11 @@
+const db = require('index.js');
+
+
+
 const alias = 'user'
 
 const cols = {
+
 id: {
     autoIncrement: true,
     primaryKey: true,
@@ -8,15 +13,15 @@ id: {
 },
 
 nombre: {
-    type: dataTypes.STRING,
+    type: DataTypes.STRING,
 },
 
 apellido: {
-    type: dataTypes.STRING,
+    type: DataTypes.STRING,
 },
 
 email: {
-    type: dataTypes.STRING,
+    type: DataTypes.STRING,
 },
 
 password: {
@@ -24,25 +29,25 @@ password: {
 },
 
 image: {
-    type: 'image',
+    type: DataTypes.STRING,
 },
 
 fecha: {
-    type: dataTypes.DATE,
+    type: DataTypes.DATE,
 },
 
 dcumemento: {
-   type: dataTypes.STRING(8),  
+   type: DataTypes.STRING(8),  
 },
 
 createAT: {
-    type: dataTypes.DATE,
+    type: DataTypes.DATE,
 },
 
 updateAT: {
-    type: dataTypes.DATE,
+    type: DataTypes.DATE,
 },
-}
+} 
 
 const config = {
     tableName: 'users',
@@ -53,3 +58,4 @@ const config = {
 
 const users = sequelize.define(alias, cols, config)
 
+module.exports = users 
