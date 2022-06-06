@@ -6,9 +6,12 @@ const users = db.user
 let registerController = {
   
     register: function (req,res){
-        return res.render ('register',{login: usuariosU.lista})
+        return res.render ('register')
     },
-    
+
+    login: function (req,res){
+        return res.render ('login')
+    },
 
     store:function(req, res){
         let errors = {}

@@ -23,10 +23,6 @@ fotoDePerfil: usuariosU.lista[0].fotoDePerfil
 
 },
 
-login: function (req,res){
-    return res.render ('login',{login: usuariosU.lista})
-},
-
 
 }
 
