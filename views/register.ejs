@@ -5,10 +5,9 @@
 
 	<body>
 
-		<form action="/register" method="POST" enctype="multipart/form-data">
-			<div>
-				<input type="text" name="name" placeholder="nombre" value="">
-			</div>
+		<form action="/users/register" method="POST" >
+				
+			<input type="text" name="name" placeholder="nombre" value="">
 			<div>
 				<input type="email" name="email" placeholder="email" value="">
 			</div>
@@ -18,9 +17,9 @@
 			<div>
 				<input type="password" name="retypePassword" placeholder="repetir contraseña" value="">
 			</div>
-			<div>
+			<!-- <div>
 				<input type="file" name="avatar">
-			</div>
+			</div> -->
 			<button type="submit">Registrarme</button>
 		</form>
 	

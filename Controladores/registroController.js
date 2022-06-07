@@ -1,7 +1,7 @@
 const bcrypt = require('bcryptjs')
 const db = require("../db/models");
 const op = db.Sequelize.Op;
-const users = db.user
+const users = db.User
 
 let registerController = {
   
@@ -14,6 +14,9 @@ let registerController = {
     },
 
     store:function(req, res){
+
+        //console.log("AAAAAAA"+JSON.stringify(req.body))
+        console.log("ddd",req.body)
         let errors = {}
         if(req.body.email == ""){
             errors.message = "El email es obligatorio";
@@ -31,13 +34,14 @@ let registerController = {
             errors.message = "Las contraseñas no coinciden";
             console.log(errors) // Guardar errors en locals
             return res.render('register')
-        } else if (req.file.mimetype !== 'image/png' && req.file.mimetype !== 'image/jpg' && req.file.mimetype !== 'image/jpeg'){
-            errors.message = "El archivo debe ser jpg o png";
-            console.log(errors) // Guardar errors en locals
-            return res.render('register')
-        }else {
+        }//else if (req.file.mimetype !== 'image/png' && req.file.mimetype !== 'image/jpg' && req.file.mimetype !== 'image/jpeg'){
+            //errors.message = "El archivo debe ser jpg o png";
+            //console.log(errors) // Guardar errors en locals
+            //return res.render('register')
+       // }
+        else {
             users.findOne({
-                where: [{email: req.body.email}]
+                where: {email: req.body.email}
             })
             .then(function(user){
                 if(user != null){
@@ -46,15 +50,16 @@ let registerController = {
                     return res.render('register')                
                 }else {
                     let user = {
-                        name: req.body.name,
+                        name_users: req.body.name,
                         email: req.body.email,
-                        password: bcrypt.hashSync(req.body.password, 10),
-                        avatar: req.file.filename
+                        password: bcrypt.hashSync(req.body.password, 10)
+                        //image_users: req.file.filename
+
                     }
 
                     users.create(user)
                         .then(user => {
-                            return res.redirect('/')
+                            return res.redirect('/users/login')
                         })
                         .catch(e=>{
                             console.log(e)

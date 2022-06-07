@@ -1,5 +1,7 @@
-let productosP = require('../db/models/Productos.js');
-let comentariosC = require('../db/models/Comentarios.js');
+
+const db = require("../db/models");
+const op = db.Sequelize.Op;
+const product = db.Product;
 
 const productController = {
 

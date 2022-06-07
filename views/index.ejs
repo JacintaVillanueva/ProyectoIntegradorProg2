@@ -15,17 +15,17 @@
 			<div class="col-12">
 				<h1 class="products-title">Novedades</h1>
 			</div>
-		<% for (let i=0; i<products.length; i++){ %>
+		<% for (){ %>
 		<div class="col-12 col-sm-6 col-lg-3">
 				<section class="product-box">
-					<a href="/productos/especifico/<%= products[i].id %>">
+					<a href="/productos/especifico/<%=  %>">
 						<figure class="product-box_image">
-							<img class="imagen" src="<%=products[i].imagen %>" alt="cafetera moulinex">
+							<img class="imagen" src="<% %>" alt="cafetera moulinex">
 						</figure>
 						<article class="product-box_data">
-							<h2> <%= products[i].nombreDelProducto %></h2>
-							<p ><%= products[i].descripcion %></p>
-							<p ><%= products[i].fechaDeCarga %></p>
+							<h2> </h2>
+							<p ></p>
+							<p ></p>
 						</article>
 					</a>
 				</section>
@@ -41,17 +41,17 @@
 				<h2 class="products-title">Más comentados</h2>
 			</div>
 			<!-- Show the "ultimos" products -->
-			<% for (let i=0; i<4; i++){ %>
+			<% for (){ %>
 				<div class="col-12 col-sm-6 col-lg-3">
 						<section class="product-box">
-							<a href="/productos/especifico/<%= products[i].id %>">
+							<a href="/productos/especifico/<%=  %>">
 								<figure class="product-box_image">
-									<img class="imagen" src="<%=products[i].imagen %>" alt="cafetera moulinex">
+									<img class="imagen" src="<%=%>" alt="cafetera moulinex">
 								</figure>
 								<article class="product-box_data">
-									<h2> <%= products[i].nombreDelProducto %></h2>
-									<p><%= products[i].descripcion %></p>
-									<p><%= products[i].fechaDeCarga %></p> 
+									<h2> <%=  %></h2>
+									<p><%=  %></p>
+									<p><%= %></p> 
 								</article>
 							</a>
 						</section>

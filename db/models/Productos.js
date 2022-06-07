@@ -1,31 +1,27 @@
-const db = require('index.js');
 
-//module.exports = (sequelize, dataTypes)=> {
 
-const alias = 'product'
+module.exports = (sequelize, DataTypes)=> {
+
+const alias = 'Product'
 
 const cols = {
 
-id: {
+id_product: {
     autoIncrement: true,
     primaryKey: true,
     type: 'integer',
 },
 
-nombre: {
+name_product: {
     type: DataTypes.STRING(15),
 },
 
-descripcion: {
+product_description: {
     type: DataTypes.STRING(255),
 },
 
-image: {
+image_product: {
     type: DataTypes.STRING (1000),
-},
-
-fecha: {
-    type: DataTypes.DATE,
 },
 
 createAT: {
@@ -46,9 +42,8 @@ const config = {
 
 const products = sequelize.define(alias, cols, config)
 
-//return products
+return products
 
-//}
+}
 
 
-module.exports = products

@@ -1,57 +1,53 @@
 
-
-module.exports = (sequelize, dataTypes)=> {
+module.exports = (sequelize, DataTypes)=> {
 
 const alias = 'User'
 
 const cols = {
 
-id: {
+id_users: {
     autoIncrement: true,
     primaryKey: true,
     type: 'integer',
 },
 
-nombre: {
+name_users: {
     type: DataTypes.STRING,
 },
 
-apellido: {
-    type: DataTypes.STRING,
-},
 
 email: {
     type: DataTypes.STRING,
 },
 
 password: {
-    type: 'password',
-},
-
-image: {
     type: DataTypes.STRING,
 },
 
-fecha: {
+image_users: {
+    type: DataTypes.STRING,
+},
+
+fecha_nacimiento: {
     type: DataTypes.DATE,
 },
 
-dcumemento: {
+numero_documento: {
    type: DataTypes.STRING(8),  
 },
 
-createAT: {
+created_at: {
     type: DataTypes.DATE,
 },
 
-updateAT: {
+updated_at: {
     type: DataTypes.DATE,
 },
 } 
 
 const config = {
     tableName: 'users',
-    timestamps: false,
+    timestamps: true,
     underscored: true,
 }
 
