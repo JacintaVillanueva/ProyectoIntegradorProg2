@@ -40,7 +40,7 @@ const config = {
 }
 
 
-const products = sequelize.define(alias, cols, config)
+const Product = sequelize.define(alias, cols, config)
 Product.associate = function(models){
 
     Product.belongsTo(models.User, { 
@@ -51,8 +51,8 @@ Product.associate = function(models){
         as:'comentario',
         foreignKey: 'product_id' //chequear on mi base de datos
     })
-    }
-return products
+    } 
+return Product
 
 }
 

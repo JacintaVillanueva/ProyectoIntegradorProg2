@@ -7,6 +7,7 @@ const productController = {
 
 index: function (req, res) {
     let idProducto = req.params.id
+    
 return res.render ('product',{product: idProducto, comments: comentariosC.lista})
 }, 
 
