@@ -26,6 +26,7 @@ const config = {
 
 const comentarios = sequelize.define(alias, cols, config)
 
+
 return comentarios
 
 }

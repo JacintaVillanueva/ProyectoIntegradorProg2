@@ -44,13 +44,10 @@ const Product = sequelize.define(alias, cols, config)
 Product.associate = function(models){
 
     Product.belongsTo(models.User, { 
-        as:'User',
-        foreignKey: 'user_id'
+        as:'users',
+        foreignKey: 'id_users'
     })
-    Product.hasMany(models.comentario, {
-        as:'comentario',
-        foreignKey: 'product_id' //chequear on mi base de datos
-    })
+   
     } 
 return Product
 
