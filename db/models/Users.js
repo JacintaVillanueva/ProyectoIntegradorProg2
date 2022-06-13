@@ -11,10 +11,13 @@ id_users: {
     type: 'integer',
 },
 
-name_users: {
+nombre_users: {
     type: DataTypes.STRING,
 },
 
+apellido: {
+    type: DataTypes.STRING,
+},
 
 email: {
     type: DataTypes.STRING,
@@ -31,11 +34,6 @@ image_users: {
 fecha_nacimiento: {
     type: DataTypes.DATE,
 },
-
-numero_documento: {
-   type: DataTypes.STRING(8),  
-},
-
 created_at: {
     type: DataTypes.DATE,
 },
@@ -43,6 +41,10 @@ created_at: {
 updated_at: {
     type: DataTypes.DATE,
 },
+numero_documento: {
+   type: DataTypes.STRING(8),  
+},
+
 } 
 
 const config = {
@@ -63,6 +65,5 @@ foreignKey: 'id_users'
 }
 
     return User
-
 
 }

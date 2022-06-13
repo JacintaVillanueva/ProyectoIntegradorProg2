@@ -15,8 +15,6 @@ let registerController = {
 
     store:function(req, res){
 
-        //console.log("AAAAAAA"+JSON.stringify(req.body))
-        console.log("ddd",req.body)
         let errors = {}
         if(req.body.email == ""){
             errors.message = "El email es obligatorio";
@@ -50,13 +48,16 @@ let registerController = {
                     return res.render('register')                
                 }else {
                     let user = {
-                        name_users: req.body.name,
+                        nombre_users: req.body.name,
+                        apellido: 'pepe',
                         email: req.body.email,
-                        password: bcrypt.hashSync(req.body.password, 10)
-                        //image_users: req.file.filename
-
+                        password: bcrypt.hashSync(req.body.password, 10),
+                        fecha_nacimiento: req.body.fecha, 
+                        numero_documento: req.body.dni,
+                        image_users: 'asdfasdfsdf'
                     }
-
+                    console.log(user)
+                    console.log(users)
                     users.create(user)
                         .then(user => {
                             return res.redirect('/users/login')
