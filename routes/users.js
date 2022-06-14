@@ -10,6 +10,7 @@ router.get('/add',usersControllerr.profileEdit);
 router.get('/login',registerControllerr.login);
 router.get('/register',registerControllerr.register);
 router.post('/register',registerControllerr.store);
+router.get('/user/edit/:userId',);
 
 module.exports = router;
 

@@ -1,6 +1,7 @@
 let usuariosU = require('../db/models');
 
-const usersController = {
+const usersControllers = 
+{
 
 profile: function (req, res) {
     let idProducto = req.params.id
@@ -22,8 +23,10 @@ fotoDePerfil: usuariosU.lista[0].fotoDePerfil
 })
 
 },
+    
+
 
 
 }
 
-module.exports = usersController;
+module.exports = usersControllers;
