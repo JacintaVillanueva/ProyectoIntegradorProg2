@@ -12,9 +12,18 @@ id: {
 },
 
 textoDelComentario: {
-    type: DataTypes.STRING(500),
+    type: DataTypes.STRING,
+},
+created_at: {
+    type: DataTypes.DATE,
 },
 
+updated_at: {
+    type: DataTypes.DATE,
+},
+deleted_at: {
+    type: DataTypes.DATE,
+},
 }
 
 const config = {

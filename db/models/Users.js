@@ -5,7 +5,7 @@ const alias = 'User'
 
 const cols = {
 
-id_users: {
+id: {
     autoIncrement: true,
     primaryKey: true,
     type: 'integer',
@@ -42,9 +42,11 @@ updated_at: {
     type: DataTypes.DATE,
 },
 numero_documento: {
-   type: DataTypes.STRING(8),  
+   type: DataTypes.STRING,  
 },
-
+deleted_at: {
+    type: DataTypes.DATE,
+},
 } 
 
 const config = {

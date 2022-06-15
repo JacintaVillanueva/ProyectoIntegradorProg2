@@ -6,29 +6,32 @@ const alias = 'Product'
 
 const cols = {
 
-id_product: {
+id: {
     autoIncrement: true,
     primaryKey: true,
     type: 'integer',
 },
 
 name_product: {
-    type: DataTypes.STRING(15),
+    type: DataTypes.STRING,
 },
 
 product_description: {
-    type: DataTypes.STRING(255),
+    type: DataTypes.STRING,
 },
 
 image_product: {
-    type: DataTypes.STRING (1000),
+    type: DataTypes.STRING,
 },
 
-createAT: {
+created_at: {
     type: DataTypes.DATE,
 },
 
-updateAT: {
+updated_at: {
+    type: DataTypes.DATE,
+},
+deleted_at: {
     type: DataTypes.DATE,
 },
 } 
