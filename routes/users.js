@@ -11,6 +11,8 @@ router.get('/login',registerControllerr.login);
 router.get('/register',registerControllerr.register);
 router.post('/register',registerControllerr.store);
 router.get('/user/edit/:userId',);
+router.post('/user/edit',);
+
 
 module.exports = router;
 

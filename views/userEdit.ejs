@@ -9,9 +9,33 @@
 <body>
     <h1>Editar mis datos</h1>
  
-    <form action="" method="POST" enctype="multipart/form-data">
+    <form action="/user/edit" method="POST" enctype="multipart/form-data">
         <div>
-            <input type="text" name="name" placeholder="nombre" value="%=user.name%> ">
+            <input type="text" name="name" placeholder="nombre" value="<%=user.nombre_users%> ">
         </div>
-        Ese user.name tiene que coincidir con el nombre del usuario de la base de datos.
+
+        <div>
+            <input type="text" name="apellido" placeholder="apellido" value="<%=user.apellido%> ">
+        </div>
+
+        <div>
+            <input type="email" name="name" placeholder="email" value="<%=user.email%> ">
+        </div>
+
+        <div>
+            <input type="password" name="password" placeholder="password" value="<%=user.password%> ">
+        </div>
+
+        <div>
+            <input type="date" name="fecha" placeholder="Fecha de nacimientos" value="<%=user.fecha_nacimiento%>">
+        </div>
+
+        <div>
+            <input type="text" name="dni" placeholder="DNI" value="<%=user.numero_documento%> ">
+        </div>
+
+     <button type="submit"> Actualizar Datos</button>
+
+        
+         
     </form>

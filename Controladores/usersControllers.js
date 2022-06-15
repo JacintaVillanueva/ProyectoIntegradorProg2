@@ -23,7 +23,30 @@ fotoDePerfil: usuariosU.lista[0].fotoDePerfil
 })
 
 },
+    edit: function (req, res) {
+let userId = req.params.userId;
+
+user.findByPk(userId).then(function (user){
+    return res.render('userEdit', {userEdit:user})
     
+})
+ .catch( e => {
+    console.log(err)
+})
+    },
+    update: function (req, res) {
+        let user ={
+            name: req.body.name,
+            apellido: req.body.apellido,
+            email: req.body.email,
+            password: bcrypt.hashSync(req.body.password, 10),
+        }
+    }
+
+
+
+
+
 
 
 
