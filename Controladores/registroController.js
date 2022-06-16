@@ -58,7 +58,7 @@ let registerController = {
                         password: bcrypt.hashSync(req.body.password, 10),
                         fecha_nacimiento: req.body.fecha, 
                         numero_documento: req.body.dni,
-                        image_users: "n",              //arreglar porque no se sube la foto
+                        image_users: "nnn",              //arreglar porque no se sube la foto
                     }
                     console.log(user)
                     console.log(users)
