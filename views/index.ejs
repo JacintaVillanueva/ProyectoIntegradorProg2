@@ -2,7 +2,7 @@
 	<!-- Header -->
 	<%- include('./partials/headerLogueado.ejs') %>
 	<!-- /Header -->
-	
+	 
 <!-- Banner -->
 	<div class="banner">
 		<img src="images/img-home-banner.jpg" alt="Banner de ofertas">
@@ -16,10 +16,10 @@
 				<h1 class="products-title">Novedades</h1>
 			</div>
 			<p>
-<a href="/users/edit/<%=1%>">Editar Usuario</a>
+<a href="/users/edit/<%= %>">Editar Usuario</a>
 
 			</p>
-		<% for (){ %>
+		<% for () { %>
 		<div class="col-12 col-sm-6 col-lg-3">
 				<section class="product-box">
 					<a href="/productos/especifico/<%=  %>">
