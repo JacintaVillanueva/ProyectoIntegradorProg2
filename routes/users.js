@@ -25,7 +25,7 @@ router.get('/profile/:id',usersControllerr.profile);
 router.get('/add',usersControllerr.profileEdit); 
 router.get('/login',registerControllerr.login);
 router.get('/register',registerControllerr.register);
-router.post('/register',upload.single('avatar'),registerControllerr.store);
+router.post('/register',upload.single('file'),registerControllerr.store);
 router.post('/register',registerControllerr.store);
 router.get('/user/edit/:userId',);
 router.post('/user/edit',);
