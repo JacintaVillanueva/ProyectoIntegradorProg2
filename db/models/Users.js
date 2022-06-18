@@ -57,15 +57,34 @@ const config = {
 
 
 const User = sequelize.define(alias, cols, config)
+
+User.associate = function(models){
+User.hasMany(models.Product, {
+    as: 'Product',
+    foreignKey: 'id_users'
+})
+User.hasMany(models.comentario, {
+    as: 'comentario',
+    foreignKey: 'id_users'
+})
+/*User.belongsToMany(models.User, {
+    as: 'Followers',
+    through: 'followers',
+    otherKey: 'seguidor_id',
+    foreignKey: 'seguido_id',
+    timestamps: false,
+})
+
+
 User.associate = function (models){
-User.hasMany(models.Product,{ 
+    User.hasMany(models.Product,{ 
 as:'products',
 foreignKey: 'id_users'
 
 })
+*/
 
 }
-
-    return User
+    return User;
 
 }

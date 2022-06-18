@@ -50,9 +50,13 @@ Product.associate = function(models){
         as:'users',
         foreignKey: 'id_users'
     })
+    Product.hasMany(models.comentario,{
+        as:'comentario',
+        foreingKey:'id_product'
+    })
    
     } 
-return Product
+return Product;
 
 }
 

@@ -27,8 +27,8 @@ router.get('/login',registerControllerr.login);
 router.get('/register',registerControllerr.register);
 router.post('/register',upload.single('file'),registerControllerr.store);
 router.post('/register',registerControllerr.store);
-router.get('/user/edit/:userId',);
-router.post('/user/edit',);
+router.get('/user/edit/:userId',usersControllerr.edit);
+router.post('/user/edit',usersControllerr.update,);
 
 
 module.exports = router;

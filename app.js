@@ -9,7 +9,8 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 let productosRouter = require('./routes/product');
 let searchRouter = require('./routes/search-results');
-const usersControllers = require('./Controladores/usersControllers');
+const usersController = require('./Controladores/usersControllers');
+const comentariosRuta = require('./routes/comentario');
 
 var app = express();
 
@@ -26,12 +27,39 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/productos',productosRouter);
 app.use('/search-results',searchRouter);
+app.use('/comentarios', comentariosRuta);
+
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
 });
 
+const session = require('express-session');
+app.use(session(
+  {
+    secret: 'mensaje',
+    resave: false,
+    saveUninitialized: true
+  }
+));
+
+//creo una session
+app.use(function (req, res, next) {
+  if (req.session.user != undefined) {
+    res.locals.user = req.session.user
+  }
+  return next();
+});
+
+app.use(session(
+  {
+    secret: 'mensaje',
+    resave: false,
+    saveUninitialized: true
+  }
+));
 // error handler
 app.use(function(err, req, res, next) {
   // set locals, only providing error in development

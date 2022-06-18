@@ -1,9 +1,36 @@
-let express = require('express');
-let router = express.Router();
-let productControllerr = require('../Controladores/controladorProducts')
+const express = require('express'); //nos va a permitir modularizar el sistema de ruteo
+const router = express.Router();
 
-router.get('/especifico/:id',productControllerr.index);
+const productoController = require("../Controladores/controladorProducts")
+const multer = require('multer');
+const path = require('path');
 
-router.get('/add',productControllerr.create); 
+const storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+      cb(null, path.join(__dirname, '../public/images'));
+    },
+    filename: function (req, file, cb) {
+      cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname))
+    }
+  })
+  
+  const upload = multer({ storage: storage });
 
-module.exports = router;
+//ruta que muestra los modelos
+
+router.get ('/add', productoController.agregarProducto ); //vitsa del formulario de agregar producto
+router.post ('/add', upload.single("imagen"), productoController.nuevoProducto); // procesa info del formulario
+
+router.get ('/', productoController.detalleProducto ); 
+router.get ('/:id', productoController.detalleProducto );
+
+//editar producto
+router.get ('/editar/:id', productoController.showEdit); //muestra vista edit del formulario
+router.post('/editar', upload.single("imagen"), productoController.edit); //procesa cambios en la publicacion
+
+//eliminar producto
+router.post('/borrar/:id', productoController.borrar); //borra producto
+
+//exportamos el contenido del router para hacerlo visible y poder requerirlo en los otros archivos
+module.exports = router 
+

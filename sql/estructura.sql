@@ -17,7 +17,7 @@ CREATE TABLE `users` (
 `email` varchar(255) NOT NULL,
 `password` varchar(255) NOT NULL,
 `image_users` varchar(255) NOT NULL,
-`fecha_nacimiento` DATE NOT NULL,
+`fecha_nacimiento` DATE NOT NULL,5
 `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 `updated_at` DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
 `deleted_at` DATETIME,
