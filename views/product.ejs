@@ -4,46 +4,40 @@
 
 
 	<!-- product detail -->
-	<div>
-		<div class="container products-wrapper">
-			<div class="d-flex align-items-center">
-				<h2 class="products-title">Guitarra acústica Fender FA-235</h2>
-				<p class="product-detail-description">
-					<a href="product-add.html">Editar</a>
-				</p>
+	<div class="container products-wrapper">
+        <div class="d-flex align-items-center">
+            <h2 class="products-title"> <%= producto.producto %> </h2>
+			<div class="usuario_producto">
+				<a href="/profile/ <%= producto.users.id %> "> <h3 style="margin-top: 3px; font-size: 16px;">  <%= producto.users.name %></h3></a>  
 			</div>
-			<div class="product-detail">
-				<div class="row">
-					<article class="col-12 col-lg-8 product-detail-info">
-						<img src="/images/img1.jpg" alt="" class="product-detail-img">
-						<p class="product-detail-description">
-							Guitarras prácticas y funcionales, para aficionados y profesionales. Fender es una empresa
-							que
-							transforma la música en todo el mundo y atraviesa una gran variedad de géneros. Es el mayor
-							fabricante internacional y sus productos representan un ícono cultural.</p>
-					</article>
-
+            
+        </div>
+        <div class="product-detail">
+            <div class="row">
+                <article class="col-12 col-lg-8 product-detail-info">
+                    <img src="/images/<%= producto.image %>" alt="" class="product-detail-img">
+                    <p class="product-detail-description"> Descripcion del producto: <%= producto.descripcion %> </p>
+					<p class="product-detail-description"> Propietario: <a href="/users/profile/<%= producto.users.id %> "><%= producto.users.name %></a> </p>
+					<p class="product-detail-description"> Ante cualquier consulta: <%= producto.users.email %> </p>
+					
+                </article>
+                <div class="col-12 col-lg-4">
 
 						
 
 						<div class="col-12 col-lg-4">
 							<section >
-								<% for (let i=0; i <comments.length; i++) {%>
-								<article class="comments">
-									<img class="comments-img" src="<%= comments[i].imagenDelPerfil %> " alt="">
+								<% for (let i=0; i < producto.comentario.length; i++) {%>
+								<article>
 									<div class="data">
-										<p class="user">
-											<strong> <a href="">
-													<%= comments[i].nombreDelUsuario %>
-												</a> </strong>
-												<%= comments[i].textoDelComentario %>
-										</p>
+										<p class="user"><%= producto.comentario[i].comentario%></p>
 									</div>
 								</article>
 							</section>
 							<%} %>
-							<form class="form" action="" method="POST">
-								<input class="form-input" type="text" value="" placeholder="Agregar comentario">
+
+							<form class="form" action="/comentarios/comentar/<%= producto.id %> " method="POST">
+								<input class="form-input" type="text" value="" placeholder="Agregar comentario" name="comentario">
 								<button type="submit" class="buy-now-button">AGREGAR COMENTARIO</button>
 							</form>
 						</div>

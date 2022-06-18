@@ -1,17 +1,40 @@
 const db = require('../db/models')
 const products = db.Product
-const {Op} = require("sequelize")
+const op = require("sequelize")
 
 const indexController = {
-    index: function(req, res ) {
+    index: function(req, res){
         products.findAll({
-            order:[ ['created_at', 'DESC'] ],
-            limit: 10})
-        .then(function (product) {
-            return res.render ('index',{ producto: product})
+            order: [[ "createdAt" , "DESC"]],
+            limit : 10,
+            include : [{association: "users"}]
         })
-        .catch(error => console.log (error))
-    }
+        .then((result) => {
+            return res.render('index', {producto : result})
+        })
+        .catch((error) => {
+            return res.send(error);
+        })
+    },
+    resultados: function(req, res){
+        let search = req.query.search; //query captura lo que escribe el usuario en el buscador
+        products.findAll({
+            where : {
+                [op.or]:[
+                    {name_product: {[op.like]: "%" + search + "%"}}, 
+                    {product_description: {[op.like]: "%" + search + "%"}}
+                ]
+            },
+            include: [{association: 'users'}]
+        })
+        .then((data) => {
+            console.log(data)
+                return res.render('search-results', { producto: data})
+            })
+            .catch((error) => {
+                return res.send(error);
+            })
+        }
 }
 
 module.exports = indexController;

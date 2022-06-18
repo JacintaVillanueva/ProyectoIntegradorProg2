@@ -10,7 +10,7 @@
 	<div class="container products-wrapper">
 		<div class="row">
 			<div class="col-12">
-				<h2 class="subtitulo">Agregar productos</h2>
+				<h2 class="subtitulo">Editar productos</h2>
 			</div>
 			<!-- Show the "ultimos" products -->
 			<h2 class="col-12"> <i>
@@ -18,8 +18,8 @@
 					<p style> <%= errores.message %> </p>
 				<% } %> 
 
-
-<form class="formLogin" method="POST" enctype="multipart/form-data" action="/producto/add">
+<!-- agrega value para que te traiga la info vieja para editar -->
+<form class="formLogin" method="POST" enctype="multipart/form-data" action="/productos/editar">
 
 				<div >
 					<input type="text"  placeholder="Instrumento" class="inputs" name="producto">
@@ -34,7 +34,7 @@
 			
 				</div>
 
-				<button> Agregar </button>
+				<button> Editar producto </button>
 			</form>
 			</h2>
 

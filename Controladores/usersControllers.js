@@ -1,4 +1,6 @@
-let usuariosU = require('../db/models');
+let db = require('../db/models');
+const User = db.User
+const bcrypt = require('bcryptjs');
 
 const usersControllers = 
 {
