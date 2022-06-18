@@ -14,28 +14,32 @@ let registerController = {
     },
 
     store:function(req, res){
-
+ 
         let errors = {}
         if(req.body.email == ""){
-            errors.message = "El email es obligatorio";
+            errors.message = "El email es obligatorio";     //Que salte en la pagina una alerta
             console.log(errors) // Guardar errors en locals
             return res.render('register')
         } else if(req.body.password == ""){
             errors.message = "La contraseña es obligatoria";
-            console.log(errors) // Guardar errors en locals
+            console.log(errors) // Guardar errors en locals    
             return res.render('register')
         } else if(req.body.retypePassword == ""){
             errors.message = "La contraseña es obligatoria";
             console.log(errors) // Guardar errors en locals
             return res.render('register')
-        }else if(req.password != req.retypePassword){
+         } else if(req.body.password < 3 ){               
+                errors.message = "La contraseña debe tener al menos 3 caracteres";
+                console.log(errors) // Guardar errors en locals    
+                return res.render('register')
+        }else if(req.body.password != req.body.retypePassword){          
             errors.message = "Las contraseñas no coinciden";
             console.log(errors) // Guardar errors en locals
             return res.render('register')
-        }//else if (req.file.mimetype !== 'image/png' && req.file.mimetype !== 'image/jpg' && req.file.mimetype !== 'image/jpeg'){
-            //errors.message = "El archivo debe ser jpg o png";
-            //console.log(errors) // Guardar errors en locals
-            //return res.render('register')
+        }// else if (req.file.mimetype !== 'image/png' && req.body.avatar !== 'image/jpg' && req.body.avatar !== 'image/jpeg'){
+         //   errors.message = "El archivo debe ser jpg o png";
+         //   console.log(errors) // Guardar errors en locals
+         //   return res.render('register')
        // }
         else {
             users.findOne({
@@ -49,12 +53,12 @@ let registerController = {
                 }else {
                     let user = {
                         nombre_users: req.body.name,
-                        apellido: 'pepe',
+                        apellido: req.body.apellido,
                         email: req.body.email,
                         password: bcrypt.hashSync(req.body.password, 10),
                         fecha_nacimiento: req.body.fecha, 
                         numero_documento: req.body.dni,
-                        image_users: 'asdfasdfsdf'
+                        image_users: "nnn",              //arreglar porque no se sube la foto
                     }
                     console.log(user)
                     console.log(users)
