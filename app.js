@@ -9,7 +9,7 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 let productosRouter = require('./routes/product');
 let searchRouter = require('./routes/search-results');
-const usersControllers = require('./Controladores/usersControllers');
+const usersController = require('./Controladores/usersControllers');
 const comentariosRuta = require('./routes/comentario');
 
 var app = express();
