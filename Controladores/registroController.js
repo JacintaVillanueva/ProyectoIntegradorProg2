@@ -13,6 +13,54 @@ let registerController = {
         return res.render ('login')
     },
 
+    storeLogin:function(req, res){
+        let errors = {}
+
+        users.findOne({
+            where: [{email: req.body.email}]
+        })
+        .then (function (user) {
+            if (user == null) {
+        errors.message = "el usuario no existe"
+       // res.Locals.errors = errors
+       console.log(errors)
+            return res.render('login')
+         } else if (bcrypt.compareSync(req.body.password,user.password) == false) {
+                errors.message = "la contraseña es incorrecta"
+               // res.Locals.errors = errors
+               console.log(errors)
+                return res.render('login')
+            }  else {
+                return res.render('index')
+            }       
+
+
+        
+
+        /*    else {
+                if (req.body.recordarme !== undefined) {
+                    res.cookie('userId',user.id, {maxAge:1000*60*5} )                     //cookie y session
+                } 
+                
+                req.session.user = users
+              return res.render('index')
+            }*/
+
+        })
+        .catch(e=>{
+            console.log(e)
+        })
+
+    },
+
+    Logout: function(req, res){
+        req.session.destroy()
+    //    res.clearCookie('userId')                                                    //cookie 
+        res.render('login')
+    },
+
+
+
     store:function(req, res){
  
         let errors = {}
@@ -62,6 +110,7 @@ let registerController = {
                     }
                     console.log(user)
                     console.log(users)
+
                     users.create(user)
                         .then(user => {
                             return res.redirect('/users/login')

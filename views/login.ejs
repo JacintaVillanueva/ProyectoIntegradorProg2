@@ -13,15 +13,18 @@
 			</div>
 			<!-- Show the "ultimos" products -->
 			<h2 class="col-12"> 
-				<form action="" method="get" class="formularioLogin">
+				<form action="/users/login" method="POST" class="formularioLogin">
 					<div>
-						<label for="usuario" class="formulario">Usuario:</label>
-						<input id="usuario" type="text" name="usuario" placeholder="Escribe tu usuario">
+						<label for="usuario" class="formulario">Email:</label>
+						<input id="usuario" type="email" name="email" placeholder="Escribe tu email" required>
 					</div>
 					<div>
 						<label for="contraseña" class="formulario">Contraseña:</label>
-						<input id="contraseña" type="text" name="contraseña" placeholder="Escribe tu contraseña">
+						<input id="contraseña" type="text" name="password" placeholder="Escribe tu contraseña" required>
 					</div>
+
+
+
 					<div>
 						<button type="submit" class="formularioBoton">Iniciar sesión</button>
 					</div>
