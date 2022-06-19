@@ -17,9 +17,6 @@
 			<div class="col-12">
 				<h1 class="products-title">Novedades</h1>
 			</div>
-			<p>
-
-			</p>
 			<% for( let i = 0; i < producto.length; i++ ) { %>
 				<div class="col-12 col-sm-6 col-lg-3">
 					<section class="product-box">
@@ -30,32 +27,13 @@
 							
 							<article class="product-box_data">
 								<h2><%= producto[i].name_product %></h2>
-								<p> Publicado por: <%= producto[i].User.userName %></p>
+								<p> Publicado por: <%= producto[i].User.nombre_users %></p>
 								<p> Info: <%= producto[i].product_description %></p>
 							</article>
 						</a>
 					</section>
 				</div>
-			<% } %>
-		
-		
-			<% for (let i =0; i) { %>
-		<div class="col-12 col-sm-6 col-lg-3">
-				<section class="product-box">
-					<a href="/productos/especifico/<%=  %>">
-						<figure class="product-box_image">
-							<img class="imagen" src="<% %>" alt="cafetera moulinex">
-						</figure>
-						<article class="product-box_data">
-							<h2> </h2>
-							<p ></p>
-							<p ></p>
-						</article>
-					</a>
-				</section>
-			</div>
-			<%}	 %>
-			
+			<% } %>	
 		</div>
 	</div>
 	<!-- /Novedades -->
@@ -65,7 +43,7 @@
 			<div class="col-12">
 				<h2 class="products-title">Más comentados</h2>
 			</div>
-			<!-- Show the "ultimos" products -->
+			
 			<% for (){ %>
 				<div class="col-12 col-sm-6 col-lg-3">
 						<section class="product-box">
@@ -80,14 +58,14 @@
 								</article>
 							</a>
 						</section>
-					</div>
-					<%}	 %>
-			
+				</div>
+			<%}	 %>
 		</div>
 	</div>
-	
 	<!-- /Más comentados -->
 
 
 	<!-- footer -->
 	<%- include('./partials/footer.ejs') %>
+	<!-- footer -->
+

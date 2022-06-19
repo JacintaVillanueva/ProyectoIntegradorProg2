@@ -16,9 +16,9 @@
             <div class="row">
                 <article class="col-12 col-lg-8 product-detail-info">
                     <img src="/images/<%= producto.image %>" alt="" class="product-detail-img">
-                    <p class="product-detail-description"> Descripcion del producto: <%= producto.descripcion %> </p>
-					<p class="product-detail-description"> Propietario: <a href="/users/profile/<%= producto.users.id %> "><%= producto.users.name %></a> </p>
-					<p class="product-detail-description"> Ante cualquier consulta: <%= producto.users.email %> </p>
+                    <p > Descripcion del producto: <%= producto.descripcion %> </p>
+					<p > Propietario: <a href="/users/profile/<%= producto.users.id %> "><%= producto.users.name %></a> </p>
+					<p > Ante cualquier consulta: <%= producto.users.email %> </p>
 					
                 </article>
                 <div class="col-12 col-lg-4">
@@ -41,7 +41,14 @@
 								<button type="submit" class="buy-now-button">AGREGAR COMENTARIO</button>
 							</form>
 						</div>
-						
+						<% if (locals.user != undefined && locals.users.id == producto.users.id) { %>
+							<form class="form" action="/producto/borrar/<%= producto.id %>" method="POST">
+								<button type="submit" class="buy-now-button">ELIMINAR PUBLICACIÓN</button>
+							</form>
+							<form class="form" action="/producto/editar/<%= producto.id %>" method="GET">
+								<button type="submit" class="buy-now-button">EDITAR PUBLICACIÓN</button>
+							</form>
+						<% } %>
 				</div>
 			</div>
 		</div>

@@ -28,9 +28,9 @@ router.get ('/:id', productoController.detalleProducto );
 router.get ('/editar/:id', productoController.showEdit); //muestra vista edit del formulario
 router.post('/editar', upload.single("imagen"), productoController.edit); //procesa cambios en la publicacion
 
-//eliminar producto
-router.post('/borrar/:id', productoController.borrar); //borra producto
+//borrar producto
+router.post('/borrar/:id', productoController.borrar); 
 
-//exportamos el contenido del router para hacerlo visible y poder requerirlo en los otros archivos
+
 module.exports = router 
-
+ 

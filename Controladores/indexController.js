@@ -13,7 +13,7 @@ const indexController = {
             return res.render('index', {producto : result})
         })
         .catch((error) => {
-            return res.send(error);
+           return res.send(error);
         })
     },
     resultados: function(req, res){
