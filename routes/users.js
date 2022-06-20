@@ -18,18 +18,22 @@ var storage = multer.diskStorage({
 let upload = multer({storage: storage})
 
 
+//edicion de usuarios
+router.get('/profile/:id',usersControllerr.profile);  
+router.get('/profile/edit/:id',usersControllerr.profileEdit);
+router.post('/profile/edit',usersControllerr.profileUpdate);
+// router.get('/add',usersControllerr.profileEdit); 
 
-router.get('/profile/:id',usersControllerr.profile);
-
-router.get('/add',usersControllerr.profileEdit); 
+//login y log out
 router.get('/login',registerControllerr.login);
 router.post('/login',registerControllerr.storeLogin)
 router.post('/logout',registerControllerr.Logout)
+
+//register
 router.get('/register',registerControllerr.register);
 router.post('/register',upload.single('image_users'),registerControllerr.store);
 router.post('/register',registerControllerr.store);
-router.get('/user/edit/:userId',usersControllerr.edit);
-router.post('/user/edit',usersControllerr.update,);
+
 
 
 module.exports = router;

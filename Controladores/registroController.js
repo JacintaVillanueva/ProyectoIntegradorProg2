@@ -12,7 +12,7 @@ let registerController = {
     },
 
     login: function (req,res){
-        return res.render ('login')
+        return res.render ('login.ejs')
     },
 
     storeLogin:function(req, res){
@@ -21,7 +21,7 @@ let registerController = {
         users.findOne({
             where: [{email: req.body.email}]
         })
-        .then (function (user) {
+        .then ( (user) => {
            //return res.send (user)
 
            if (user == null) {
@@ -29,9 +29,9 @@ let registerController = {
        // res.Locals.errors = errors
        console.log(errors)
             return res.render('login')
-         } else if (bcrypt.compareSync(req.body.password,user.password) == false) {
+         } else if (bcrypt.compareSync(req.body.password, user.password) == false) {
                 errors.message = "la contraseña es incorrecta"
-               // res.Locals.errors = errors
+               res.Locals.errors = errors
                console.log(errors)
                 return res.render('login')
             }  else {
@@ -39,7 +39,7 @@ let registerController = {
                     res.cookie('userId',user.id, {maxAge:1000*60*5} )                     //cookie y session
                 } 
                 
-                req.session.username = user                                            //problema en esta linea // crea sesion en session y le guardo la info del usuario
+            //    req.session.user = user                //problema en esta linea // crea sesion en session y le guardo la info
 
 
               return res.redirect('/')
