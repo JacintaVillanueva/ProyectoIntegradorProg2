@@ -6,55 +6,52 @@
 	<!-- Novedades -->
 	<div class="container products-wrapper">
 		<div class="row">
-			<div class="col-12">
-				<h2 class="products-title">Editar mi perfil</h2>
-			</div>
-			<!-- Show the "ultimos" products -->
-			<h2 class="col-12"> </h2>
-			<form  class="editarPerfil"  action="/users" method="GET">
-                <div>  
-                    
-                </div>
-                <label for="email">Email:</label>
-                <input id=email type="text" name="email" value="">
-                <div>
-                   
-                </div>
-                <label for="contraseña"></label>Contraseña:</label>
-                <input id="contraseña" type="contraseña" name="contraseña" value="">
-                <div>
-
-                </div>
-                <label for="usuario"></label>Usuario:</label>
-                <input id="usuario" type="text" name="usuario" value="">
-                <div>
-
-                </div>
-                <label for="Fecha de nacimiento" ></label>Fecha de nacimiento:</label>
-                <input id=fecha type="text" name="fecha" value="">
-                <div>
-					<label for="email"></label>DNI:</label>
-					<input id="dni" type="number" name="dni" value="">
-                </div>
-				<div>
-					<label for="email">Foto de perfil:</label>
-					<input id="contraseña" type="contraseña" name="contraseña" value="">
-					
+			<body>
+				<h1>Editar mis datos</h1>
+			 
+				<form action="/user/edit" method="POST">
+					<div>
+						<input type="text" name="name" placeholder="nombre" value="<%=user.nombre_users%> ">
 					</div>
-                    <div>
-
-	              <img class="comments-img" src="https://upload.wikimedia.org/wikipedia/commons/b/bb/Mart%C3%ADn_Guzm%C3%A1n_%28cropped%2C_portrait%29.jpg " alt="">
-                  </div>
-
 			
-			<div>
-				<button type="submit">Enviar</button>
-
-			</div>
-			</form>
+					<div>
+						<input type="text" name="apellido" placeholder="apellido" value="<%=user.apellido%> ">
+					</div>
 			
-		
-	<!-- footer -->
+					<div>
+						<input type="email" name="email" placeholder="email" value="<%=user.email%> ">
+					</div>
+			
+					<div>
+						<input type="password" name="password" placeholder="password" value="<%=user.password%> ">
+					</div>
+			
+					<div>
+						<input type="date" name="fecha" placeholder="Fecha de nacimientos" value="<%=user.fecha_nacimiento%>">
+					</div>
+			
+					<div>
+						<input type="text" name="dni" placeholder="DNI" value="<%=user.numero_documento%> ">
+					</div>
+					<div>
+						<label for="email">Foto de perfil: </label>
+						<input type="file" name="avatar"  value="">
+					   <% if(locals.errors){ %>
+						<p> <%= locals.errors.message%> </p>
+						
+						<%} 
+					</div>
+			
+			
+			
+			
+				 <button type="submit"> Actualizar Datos</button>
+			
+					
+					 
+				</form>
+			</body>
+	<!---> footer -->
 	<%- include('./partials/footer.ejs') %>
 	<!-- /footer -->
 
