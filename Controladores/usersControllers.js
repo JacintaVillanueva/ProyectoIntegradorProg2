@@ -44,15 +44,18 @@ user.findByPk(userId).then(function (user){
             password: bcrypt.hashSync(req.body.password, 10),
         }
 
-users.update(user,{
+user.update(user,{
     where: {
-        id:1    // tiene que ser el usuario de session.
+        id: req.session.user.id   // tiene que ser el usuario de session.
     }
 
 
 }) 
-.then(fuction(id)
+.then(fuction(user)
+
+
 // Aca tengo que manejar las sessiones
+
 )
 .catch ( e => {
     console.log(err)

@@ -33,6 +33,17 @@
         <div>
             <input type="text" name="dni" placeholder="DNI" value="<%=user.numero_documento%> ">
         </div>
+        <div>
+            <label for="email">Foto de perfil: </label>
+            <input type="file" name="avatar"  value="">
+           <% if(locals.errors){ %>
+            <p> <%= locals.errors.message%> </p>
+            
+            <%} 
+        </div>
+
+
+
 
      <button type="submit"> Actualizar Datos</button>
 
