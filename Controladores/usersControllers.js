@@ -40,10 +40,15 @@ user.findByPk(userId).then(function (user){
     },
     profileUpdate: function (req, res) {                        // Boton que actualiza profile edit 
         let user ={
-            name: req.body.name,
+            nombre_users: req.body.name,
             apellido: req.body.apellido,
             email: req.body.email,
             password: bcrypt.hashSync(req.body.password, 10),
+        }
+        if (req.file == undefined) {
+            user.avatar =''
+        } else {
+            user.avatar = req.file.filename;
         }
 
 user.update(user,{
