@@ -28,6 +28,7 @@ router.post('/logout',registerControllerr.Logout)
 router.get('/register',registerControllerr.register);
 router.post('/register',upload.single('image_users'),registerControllerr.store);
 router.post('/register',registerControllerr.store);
+
 router.get('/user/edit/:userId',usersControllerr.edit);
 router.post('/user/edit',usersControllerr.update,);
 

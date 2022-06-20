@@ -38,10 +38,15 @@ user.findByPk(userId).then(function (user){
     },
     update: function (req, res) {
         let user ={
-            name: req.body.name,
+            nombre_users: req.body.name,
             apellido: req.body.apellido,
             email: req.body.email,
             password: bcrypt.hashSync(req.body.password, 10),
+        }
+        if (req.file == undefined) {
+            user.avatar =''
+        } else {
+            user.avatar = req.file.filename;
         }
 
 user.update(user,{
@@ -51,9 +56,7 @@ user.update(user,{
 
 
 }) 
-.then(fuction(user)
-
-
+.then (fuction(user)
 // Aca tengo que manejar las sessiones
 
 )
