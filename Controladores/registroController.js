@@ -2,6 +2,8 @@ const bcrypt = require('bcryptjs')
 const db = require("../db/models");
 const op = db.Sequelize.Op;
 const users = db.User
+const session = require('express-session')
+
 
 let registerController = {
   
@@ -34,9 +36,6 @@ let registerController = {
                 return res.render('index')
             }       
 
-
-        
-
         /*    else {
                 if (req.body.recordarme !== undefined) {
                     res.cookie('userId',user.id, {maxAge:1000*60*5} )                     //cookie y session
@@ -55,7 +54,7 @@ let registerController = {
 
     Logout: function(req, res){
         req.session.destroy()
-    //    res.clearCookie('userId')                                                    //cookie 
+       res.clearCookie('userId')                                                    //cookie 
         res.render('login')
     },
 
@@ -84,11 +83,11 @@ let registerController = {
             errors.message = "Las contraseñas no coinciden";
             console.log(errors) // Guardar errors en locals
             return res.render('register')
-        }// else if (req.file.mimetype !== 'image/png' && req.body.avatar !== 'image/jpg' && req.body.avatar !== 'image/jpeg'){
-         //   errors.message = "El archivo debe ser jpg o png";
-         //   console.log(errors) // Guardar errors en locals
-         //   return res.render('register')
-       // }
+        }/* else if (req.file.mimetype !== 'image/png' && req.body.avatar !== 'image/jpg' && req.body.avatar !== 'image/jpeg'){
+            errors.message = "El archivo debe ser jpg o png";
+           console.log(errors) // Guardar errors en locals
+            return res.render('register')
+        }*/
         else {
             users.findOne({
                 where: {email: req.body.email}
@@ -106,7 +105,7 @@ let registerController = {
                         password: bcrypt.hashSync(req.body.password, 10),
                         fecha_nacimiento: req.body.fecha, 
                         numero_documento: req.body.dni,
-                        image_users: "nnn",              //arreglar porque no se sube la foto
+                        image_users: 'req.file.filename'
                     }
                     console.log(user)
                     console.log(users)
