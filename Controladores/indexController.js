@@ -1,10 +1,10 @@
 const db = require('../db/models')
-const products = db.Product
+const Product = db.Product;
 const op = require("sequelize")
 
 const indexController = {
-    index: function(req, res){
-        products.findAll({
+    home: function(req, res){
+        Product.findAll({
             order: [[ "createdAt" , "DESC"]],
             limit : 10,
             include : [{association: "users"}]
@@ -18,7 +18,7 @@ const indexController = {
     },
     resultados: function(req, res){
         let search = req.query.search; //query captura lo que escribe el usuario en el buscador
-        products.findAll({
+        db.Productos.findAll({
             where : {
                 [op.or]:[
                     {name_product: {[op.like]: "%" + search + "%"}}, 
@@ -29,7 +29,7 @@ const indexController = {
         })
         .then((data) => {
             console.log(data)
-                return res.render('search-results', { producto: data})
+                return res.render('searchResults', { producto: data})
             })
             .catch((error) => {
                 return res.send(error);
