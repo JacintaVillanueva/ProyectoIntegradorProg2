@@ -22,7 +22,9 @@ let registerController = {
             where: [{email: req.body.email}]
         })
         .then (function (user) {
-            if (user == null) {
+           //return res.send (user)
+
+           if (user == null) {
         errors.message = "el usuario no existe"
        // res.Locals.errors = errors
        console.log(errors)
@@ -33,17 +35,15 @@ let registerController = {
                console.log(errors)
                 return res.render('login')
             }  else {
-                return res.render('index')
-            }       
-
-        /*    else {
                 if (req.body.recordarme !== undefined) {
                     res.cookie('userId',user.id, {maxAge:1000*60*5} )                     //cookie y session
                 } 
                 
-                req.session.user = users
-              return res.render('index')
-            }*/
+                req.session.username = user                                            //problema en esta linea // crea sesion en session y le guardo la info del usuario
+
+
+              return res.redirect('/')
+            }
 
         })
         .catch(e=>{
@@ -52,15 +52,15 @@ let registerController = {
 
     },
 
-    Logout: function(req, res){
+    Logout: function(req, res) {
         req.session.destroy()
-       res.clearCookie('userId')                                                    //cookie 
+     res.clearCookie('userId')                                                    //cookie 
         res.render('login')
     },
 
 
 
-    store:function(req, res){
+    store:function(req, res) {
  
         let errors = {}
         if(req.body.email == ""){
@@ -83,11 +83,11 @@ let registerController = {
             errors.message = "Las contraseñas no coinciden";
             console.log(errors) // Guardar errors en locals
             return res.render('register')
-        }/* else if (req.file.mimetype !== 'image/png' && req.body.avatar !== 'image/jpg' && req.body.avatar !== 'image/jpeg'){
+        } /* else if (req.file.mimetype !== 'image/png' && req.body.avatar !== 'image/jpg' && req.body.avatar !== 'image/jpeg'){
             errors.message = "El archivo debe ser jpg o png";
            console.log(errors) // Guardar errors en locals
             return res.render('register')
-        }*/
+        } */
         else {
             users.findOne({
                 where: {email: req.body.email}

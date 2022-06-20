@@ -4,6 +4,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+const session = require('express-session');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -11,6 +12,8 @@ let productosRouter = require('./routes/product');
 let searchRouter = require('./routes/search-results');
 const usersController = require('./Controladores/usersControllers');
 const comentariosRuta = require('./routes/comentario');
+
+
 
 var app = express();
 
@@ -22,6 +25,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
@@ -36,7 +41,12 @@ app.use(function(req, res, next) {
   next(createError(404));
 });
 
-const session = require('express-session');
+
+
+
+
+ //session
+
 app.use(session(
   {
     secret: 'mensaje',
@@ -44,23 +54,38 @@ app.use(session(
     saveUninitialized: true
   }
 ));
+
 
 //creo una session
 app.use(function (req, res, next) {
   if (req.session.user != undefined) {
     res.locals.user = req.session.user
+    return next();
   }
   return next();
 });
 
-app.use(session(
-  {
-    secret: 'mensaje',
-    resave: false,
-    saveUninitialized: true
-  }
-));
 
+/* creando el middleware de cookies .*/
+app.use(function(req, res, next) {
+  if (req.cookies.userId != undefined && req.session.user == undefined) {
+      let idUsuario = req.cookies.userId;
+
+      db.User.findByPk(idUsuario)
+      .then((user) => {
+        req.session.user = user.dataValues;
+        res.locals.user = user.dataValues;
+        return next();
+      }).catch((err) => {
+        console.log(err);
+      });
+
+    } else {
+      return next();
+    }
+  
+  });
+  
 
 // error handler
 app.use(function(err, req, res, next) {
@@ -72,5 +97,7 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+
 
 module.exports = app;

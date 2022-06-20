@@ -8,7 +8,8 @@ const cols = {
 id: {
     autoIncrement: true,
     primaryKey: true,
-    type: 'integer',
+    type: DataTypes.INTEGER,
+    allowNull: false
 },
 
 nombre_users: {
