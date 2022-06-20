@@ -6,26 +6,29 @@ const bcrypt = require('bcryptjs');
 const usersController = 
 {
 
- profile: function (req, res) {
-    let idProducto = req.params.id
-return res.render ('profile',{profile: usuariosU.lista,     //responde a profile,ejs
-    nombre: usuariosU.lista[0].usuario,
-    mail: usuariosU.lista[0].mail,
-    fotoDePerfil: usuariosU.lista[0].fotoDePerfil
+ 
+profile: (req, res) => {
+        const id = req.params.id
+      //  console.log(id);
+        Usuario.findByPk(id, {
+            include: [
+                {association: 'productos'},
+                {association: 'commentarios'}
+            ]})
+            .then(user => {
+                console.log(user);
+                if(user == null){
+                    return res.redirect('/')
+                }
+                else{
+                    res.render('profile', {user: user})
+                }
+            })
+            .catch(error => {
+                console.log(error);
+            })
 
-})
-}, 
-/*
-profileEdit: function (req, res) {
-return res.render ('profile-edit',{
-    profileEdit: usuariosU.lista,
-nombre: usuariosU.lista[0].usuario,
-mail: usuariosU.lista[0].mail,
-fotoDePerfil: usuariosU.lista[0].fotoDePerfil
-
-})
-
-}, */
+    }, 
 
    profileEdit: function (req, res) {                                         
 let userId = req.params.userId; 
@@ -44,6 +47,8 @@ user.findByPk(userId).then(function (user){
             apellido: req.body.apellido,
             email: req.body.email,
             password: bcrypt.hashSync(req.body.password, 10),
+            fecha: req.body.fecha,
+            dni: req.body.dni,
         }
         if (req.file == undefined) {
             user.avatar =''

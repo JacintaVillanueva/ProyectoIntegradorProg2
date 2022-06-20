@@ -54,6 +54,10 @@ const productoController = {
         if (req.file == undefined) {
             errores.message = errores.message + 'Agregar imagen';
         }
+        if (errores.message.length > 0) {
+            res.locals.errores = errores;
+            return res.render('productEdit');
+        }
         else {
             let producto =  {
                 producto: req.body.producto,
@@ -63,7 +67,7 @@ const productoController = {
         }
         Product.update (producto, {where: {id: req.params.id}})
         .then(function (producto) {
-        return res.redirect(`/productos/${producto.id}`)
+        return res.redirect('/productos/' + req.params.id)
     })
     .catch(error => console.log(error))   
 }
@@ -100,12 +104,11 @@ const productoController = {
 },
     borrar: function(req, res){
         Product.destroy({ where: {id: req.params.id}})
-        .then(function(){
+        .then(response =>{
             return res.redirect('/')
         })
         .catch(error => console.log(error))  
     }
-
 }
 
 module.exports = productoController
