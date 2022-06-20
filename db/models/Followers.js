@@ -21,7 +21,7 @@ module.exports = function (sequelize, dataTypes){
     
     let config = {
         tableName: 'Followers', 
-        timestamps: false, 
+        timestamps: true, 
         underscored: true, 
     }
     

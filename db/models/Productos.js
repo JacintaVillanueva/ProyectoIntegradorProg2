@@ -38,7 +38,7 @@ deleted_at: {
 
 const config = {
     tableName: 'products',
-    timestamps: false,
+    timestamps: true,
     underscored: true,
 }
 

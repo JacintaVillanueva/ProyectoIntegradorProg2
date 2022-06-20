@@ -42,7 +42,7 @@ let registerController = {
             //    req.session.user = user                //problema en esta linea // crea sesion en session y le guardo la info
 
 
-              return res.redirect('/')
+              return res.render('index')
             }
 
         })

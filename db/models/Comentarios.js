@@ -28,7 +28,7 @@ deleted_at: {
 
 const config = {
     tableName: 'comentarios',
-    timestamps: false,
+    timestamps: true,
     underscored: true,
 }
 
