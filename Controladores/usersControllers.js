@@ -33,7 +33,7 @@ profile: (req, res) => {
    profileEdit: function (req, res) {                                         
 let userId = req.params.userId; 
 
-user.findByPk(userId).then(function (user){
+User.findByPk(userId).then(function (user){
     return res.render('profile-edit', {userEdit:user})             //responde a profile-edit
     
 })
@@ -56,7 +56,7 @@ user.findByPk(userId).then(function (user){
             user.avatar = req.file.filename;
         }
 
-user.update(user,{
+User.update(user,{
     where: {
         id: req.session.user.id   // tiene que ser el usuario de session.
     }
