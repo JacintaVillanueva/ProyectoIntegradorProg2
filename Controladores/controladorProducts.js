@@ -5,7 +5,7 @@ const productoController = {
     //aca mostramos vista para agregar producto con la condicion de que el usuario debe estar logueado, sino me redirige al registro
     agregarProducto: function (req, res) {
         if(req.session.user != undefined ){
-            return res.render('productAdd', { usuarios: [] });
+            return res.render('productAdd', { usuarios: [] });    // Chequear esto
         } else {
             return res.redirect('/users/register')
         }

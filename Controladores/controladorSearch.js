@@ -1,6 +1,6 @@
 const db = require('../db/models/index.js');
 let resultadosR= require('../db/models/Productos.js');
-
+const op = db.Sequelize.Op;
 const searchProducts = {
 
 
@@ -12,10 +12,10 @@ index: function (req, res) {
     if (product ==""){
         errors.message = "No completaste este campo"
         res.locals.errors = errors;
-        return res.reder('searchResults.ejs')
+        return res.render('searchResults')
     }
     else {
-db.product.findall({   
+db.Product.findAll({   
      where: {
      [op.or]:[
 {nombreDelProducto:{[op.like]:"%"+ product +"%",}},
@@ -28,29 +28,18 @@ db.product.findall({
     ],
     include: [
         {association:'users'},
-    {association:'comments'}
+    {association:'comentarios'}
     ],
 
 })
-.then((data)) 
-    }
+.then((data)=> {
+return res.render('searchResults',{data})
 
-
-
-
-
-
-
-
-
-},
-
-
-
-
-
-
-
+}) 
+.catch((err)=>{
+    console.log(err)
+})
+    }},
 
 }
 
