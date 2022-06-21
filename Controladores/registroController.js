@@ -39,7 +39,7 @@ let registerController = {
                     res.cookie('userId',user.id, {maxAge:1000*60*5} )                     //cookie y session
                 } 
                 
-                req.session.usermane = user                //problema en esta linea // crea sesion en session y le guardo la info
+                req.session.user = user                //problema en esta linea // crea sesion en session y le guardo la info
 
 
               return res.redirect('/')

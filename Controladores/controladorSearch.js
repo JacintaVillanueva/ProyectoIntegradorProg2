@@ -12,13 +12,13 @@ index: function (req, res) {
     if (product ==""){
         errors.message = "No completaste este campo"
         res.locals.errors = errors;
-        return res.reder('searchResults.ejs')
+        return res.render('searchResults')
     }
     else {
-db.product.findall({
+db.Product.findAll({   
      where: {
      [op.or]:[
-{name:{[op.like]:"%"+ product +"%",}},
+{nombreDelProducto:{[op.like]:"%"+ product +"%",}},
 {descripcion:{[op.like]:"%"+ product +"%",}},
 {users_id:{[op.like]:"%"+ product +"%",}},
      ]
@@ -28,29 +28,18 @@ db.product.findall({
     ],
     include: [
         {association:'users'},
-    {association:'comments'}
+    {association:'comentarios'}
     ],
 
 })
-.then((data)) 
-    }
+.then((data)=> {
+return res.render('searchResults',{data})
 
-
-
-
-
-
-
-
-
-},
-
-
-
-
-
-
-
+}) 
+.catch((err)=>{
+    console.log(err)
+})
+    }},
 
 }
 

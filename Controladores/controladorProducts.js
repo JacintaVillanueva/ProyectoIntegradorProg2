@@ -5,7 +5,7 @@ const productoController = {
     //aca mostramos vista para agregar producto con la condicion de que el usuario debe estar logueado, sino me redirige al registro
     agregarProducto: function (req, res) {
         if(req.session.user != undefined ){
-            return res.render('productAdd', { usuarios: [] });
+            return res.render('productAdd');    
         } else {
             return res.redirect('/users/register')
         }
@@ -77,31 +77,34 @@ const productoController = {
         if (req.body.producto == '') {
             errores.message = errores.message + 'Completar el campo producto';
         }
-        if (req.body.descripcion == '') {
+        else if (req.body.descripcion == '') {
             errores.message = errores.message + 'Completar el campo descripcion';
         }
 
-        if (req.file == undefined) {
+        else if (req.file == undefined) {
             errores.message = errores.message + 'Agregar imagen';
         }
 
-        if (errores.message.length > 0) {
+        else if (errores.message.length > 0) {
             res.locals.errores = errores;
             return res.render('productAdd');
-        }
+        } else{
             let producto = {
-                producto: req.body.producto,
-                descripcion:req.body.descripcion,
-                image: req.file.filename,
-                id_users: req.session.user.id 
+                id_users: req.session.user.id,
+                name_product: req.body.producto,
+                product_description:req.body.descripcion, // igual a la Base de datos
+                image_product: req.file.filename,
+                fecha_producto: req.body.fecha,
+                
+
             }
             Product.create (producto)
 
             .then(function (producto) {
-                return res.redirect(`/productos/${producto.id}`)
+                return res.redirect('/')
             })
             .catch(error => console.log(error))   
-},
+}},
     borrar: function(req, res){
         Product.destroy({ where: {id: req.params.id}})
         .then(response =>{

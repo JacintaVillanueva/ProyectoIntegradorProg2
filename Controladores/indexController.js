@@ -3,7 +3,7 @@ const Product = db.Product;
 const op = require("sequelize")
 
 const indexController = {
-    home: function(req, res){
+    index: function(req, res){
         Product.findAll({
             order: [[ "createdAt" , "DESC"]],
             limit : 10,
