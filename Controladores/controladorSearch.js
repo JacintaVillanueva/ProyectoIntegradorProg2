@@ -15,10 +15,10 @@ index: function (req, res) {
         return res.reder('searchResults.ejs')
     }
     else {
-db.product.findall({
+db.product.findall({   
      where: {
      [op.or]:[
-{name:{[op.like]:"%"+ product +"%",}},
+{nombreDelProducto:{[op.like]:"%"+ product +"%",}},
 {descripcion:{[op.like]:"%"+ product +"%",}},
 {users_id:{[op.like]:"%"+ product +"%",}},
      ]
