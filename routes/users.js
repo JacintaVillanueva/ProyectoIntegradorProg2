@@ -27,7 +27,7 @@ router.post('/profile/edit',usersControllerr.profileUpdate);
 //login y log out
 router.get('/login',registerControllerr.login);
 router.post('/login',registerControllerr.storeLogin)
-router.post('/logout',registerControllerr.Logout)
+router.get('/logout',registerControllerr.Logout)
 
 //register
 router.get('/register',registerControllerr.register);

@@ -2,7 +2,7 @@ const bcrypt = require('bcryptjs')
 const db = require("../db/models");
 const op = db.Sequelize.Op;
 const users = db.User
-const session = require('express-session')
+
 
 
 let registerController = {
@@ -39,10 +39,10 @@ let registerController = {
                     res.cookie('userId',user.id, {maxAge:1000*60*5} )                     //cookie y session
                 } 
                 
-            //    req.session.user = user                //problema en esta linea // crea sesion en session y le guardo la info
+                req.session.usermane = user                //problema en esta linea // crea sesion en session y le guardo la info
 
 
-              return res.render('index')
+              return res.redirect('/')
             }
 
         })
@@ -53,9 +53,11 @@ let registerController = {
     },
 
     Logout: function(req, res) {
-        req.session.destroy()
-     res.clearCookie('userId')                                                    //cookie 
-        res.render('login')
+        req.session.destroy();
+    if(req.cookies.userId !== undefined){
+        res.clearCookie('userId')
+    }                                                     //cookie 
+      return res.redirect('/users/login')  
     },
 
 

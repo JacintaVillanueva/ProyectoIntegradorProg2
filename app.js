@@ -26,28 +26,9 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-
-
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
-app.use('/productos',productosRouter);
-app.use('/search-results',searchRouter);
-app.use('/comentarios', comentariosRuta);
-
-
-
-// catch 404 and forward to error handler
-app.use(function(req, res, next) {
-  next(createError(404));
-});
-
-
-
-
-
  //session
 
-app.use(session(
+ app.use(session(
   {
     secret: 'mensaje',
     resave: false,
@@ -85,6 +66,25 @@ app.use(function(req, res, next) {
     }
   
   });
+
+app.use('/', indexRouter);
+app.use('/users', usersRouter);
+app.use('/productos',productosRouter);
+app.use('/search-results',searchRouter);
+app.use('/comentarios', comentariosRuta);
+
+
+
+// catch 404 and forward to error handler
+app.use(function(req, res, next) {
+  next(createError(404));
+});
+
+
+
+
+
+
   
 
 // error handler
