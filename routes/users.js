@@ -20,7 +20,7 @@ let upload = multer({storage: storage})
 
 //edicion de usuarios
 router.get('/profile/:id',usersControllerr.profile);  
-router.get('/profile/edit/:id',usersControllerr.profileEdit);
+router.get('/profile/edit/:userId',usersControllerr.profileEdit);
 router.post('/profile/edit',usersControllerr.profileUpdate);
 // router.get('/add',usersControllerr.profileEdit); 
 

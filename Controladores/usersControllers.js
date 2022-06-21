@@ -10,10 +10,10 @@ const usersController =
 profile: (req, res) => {
         const id = req.params.id
       //  console.log(id);
-        Usuario.findByPk(id, {
+        User.findByPk(id, {
             include: [
-                {association: 'productos'},
-                {association: 'commentarios'}
+                {association: 'Product'},
+                {association: 'comentario'}
             ]})
             .then(user => {
                 console.log(user);

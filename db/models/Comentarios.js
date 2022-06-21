@@ -10,8 +10,14 @@ id: {
     primaryKey: true,
     type: 'integer',
 },
+id_product: {
+    type: DataTypes.INTEGER,
+},
+id_users: {
+    type: DataTypes.INTEGER,
+},
 
-textoDelComentario: {
+texto_comentario: {
     type: DataTypes.STRING,
 },
 created_at: {

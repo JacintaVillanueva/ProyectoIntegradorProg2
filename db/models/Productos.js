@@ -51,7 +51,7 @@ Product.associate = function(models){
         foreignKey: 'id_users'
     })
     Product.hasMany(models.comentario,{
-        as:'comentario',
+        as:'comentarios',
         foreingKey:'id_product'
     })
    
