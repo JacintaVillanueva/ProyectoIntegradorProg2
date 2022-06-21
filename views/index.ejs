@@ -17,18 +17,18 @@
 			<div class="col-12">
 				<h1 class="products-title">Novedades</h1>
 			</div>
-			<% for( let i = 0; i < producto.length; i++ ) { %>
+			<% for( let i = 0; i < products.length; i++ ) { %>
 				<div class="col-12 col-sm-6 col-lg-3">
 					<section class="product-box">
-						<a href="/producto/<%= producto[i].id %>">
+						<a href="/productos/<%= products[i].id %>">
 							<figure class="product-box_image">
-								<img src="/images/<%= producto[i].image %>" alt="instrumento">
+								<img src="/images/<%= products[i].image_product %>" alt="instrumento">
 							</figure>
 							
 							<article class="product-box_data">
-								<h2><%= producto[i].name_product %></h2>
-								<p> Publicado por: <%= producto[i].User.nombre_users %></p>
-								<p> Info: <%= producto[i].product_description %></p>
+								<h2><%= products[i].name_product %></h2>
+								<p> Publicado por: <%= products[i].users.nombre_users %></p>
+								<p> Info: <%= products[i].product_description %></p>
 							</article>
 						</a>
 					</section>

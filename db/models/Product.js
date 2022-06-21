@@ -9,23 +9,28 @@ const cols = {
 id: {
     autoIncrement: true,
     primaryKey: true,
-    type: 'integer',
+    type: DataTypes.INTEGER,
+    allowNull: false
 },
 
 name_product: {
     type: DataTypes.STRING,
+    allowNull: false
 },
 
 product_description: {
     type: DataTypes.STRING,
+    allowNull: false
 },
 
 image_product: {
     type: DataTypes.STRING,
+    allowNull: false
 },
 
 created_at: {
     type: DataTypes.DATE,
+    allowNull: false
 },
 
 updated_at: {

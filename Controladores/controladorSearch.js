@@ -1,5 +1,5 @@
 const db = require('../db/models/index.js');
-let resultadosR= require('../db/models/Productos.js');
+let resultadosR= require('../db/models/Product.js');
 
 const searchProducts = {
 

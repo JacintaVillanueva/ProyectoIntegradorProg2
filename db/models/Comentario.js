@@ -8,13 +8,16 @@ const cols = {
 id: {
     autoIncrement: true,
     primaryKey: true,
-    type: 'integer',
+    type: DataTypes.INTEGER,
+    allowNull: false
 },
 id_product: {
     type: DataTypes.INTEGER,
+    allowNull: false
 },
 id_users: {
     type: DataTypes.INTEGER,
+    allowNull: false
 },
 
 texto_comentario: {
@@ -22,6 +25,7 @@ texto_comentario: {
 },
 created_at: {
     type: DataTypes.DATE,
+    allowNull: false
 },
 
 updated_at: {
@@ -39,21 +43,21 @@ const config = {
 }
 
 
-const comentarios = sequelize.define(alias, cols, config)
+const comentario = sequelize.define(alias, cols, config)
 
-comentarios.associate = function(models){
+comentario.associate = function(models){
 
-    comentarios.belongsTo(models.User, {
-        as:'User',
-        foreignKey: 'id_product'
+    comentario.belongsTo(models.User, {
+        as:'users',
+        foreignKey: 'id_users'
     })
-    comentarios.belongsTo(models.Product, {
-        as:'Product',
+    comentario.belongsTo(models.Product, {
+        as:'products',
         foreignKey: 'id_product'
     })
 }
 
 
-return comentarios;
+return comentario;
 
 }

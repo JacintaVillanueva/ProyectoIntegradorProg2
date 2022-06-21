@@ -14,40 +14,49 @@ id: {
 
 nombre_users: {
     type: DataTypes.STRING,
+    allowNull: false
 },
 
 apellido: {
     type: DataTypes.STRING,
+    allowNull: false
 },
 
 email: {
     type: DataTypes.STRING,
+    allowNull: false
 },
 
 password: {
     type: DataTypes.STRING,
+    allowNull: false
 },
 
 image_users: {
     type: DataTypes.STRING,
+    allowNull: false
 },
 
 fecha_nacimiento: {
     type: DataTypes.DATE,
+    allowNull: false
 },
 created_at: {
     type: DataTypes.DATE,
+    allowNull: false
 },
 
 updated_at: {
     type: DataTypes.DATE,
 },
-numero_documento: {
-   type: DataTypes.STRING,  
-},
+
 deleted_at: {
     type: DataTypes.DATE,
 },
+numero_documento: {
+    type: DataTypes.STRING,  
+    allowNull: false
+ },
 } 
 
 const config = {
@@ -61,11 +70,11 @@ const User = sequelize.define(alias, cols, config)
 
 User.associate = function(models){
 User.hasMany(models.Product, {
-    as: 'Product',
+    as: 'products',
     foreignKey: 'id_users'
 })
 User.hasMany(models.comentario, {
-    as: 'comentario',
+    as: 'comentarios',
     foreignKey: 'id_users'
 })
 /*User.belongsToMany(models.User, {
@@ -74,14 +83,6 @@ User.hasMany(models.comentario, {
     otherKey: 'seguidor_id',
     foreignKey: 'seguido_id',
     timestamps: false,
-})
-
-
-User.associate = function (models){
-    User.hasMany(models.Product,{ 
-as:'products',
-foreignKey: 'id_users'
-
 })
 */
 

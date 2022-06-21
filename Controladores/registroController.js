@@ -94,6 +94,7 @@ let registerController = {
             users.findOne({
                 where: {email: req.body.email}
             })
+        
             .then(function(user){
                 if(user != null){
                     errors.message = "El email ya esta registrado por favor elija otro";

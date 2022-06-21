@@ -1,5 +1,5 @@
 const db = require("../db/models");
-const Comment = db.comentario;
+const Comment = db.Comentario;
 
 const commentController = {
     comentarios: function (req, res) {
