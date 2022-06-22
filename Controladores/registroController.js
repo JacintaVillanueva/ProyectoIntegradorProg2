@@ -108,7 +108,7 @@ let registerController = {
                         password: bcrypt.hashSync(req.body.password, 10),
                         fecha_nacimiento: req.body.fecha, 
                         numero_documento: req.body.dni,
-                        image_users: 'req.file.filename'
+                        image_users: req.file.filename
                     }
                     console.log(user)
                     console.log(users)

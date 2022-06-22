@@ -11,7 +11,7 @@ var storage = multer.diskStorage({
     cb(null, path.join(__dirname,"../public/images/avatars") )
     },
     filename: function (req, file, cb) {
-        cb(null, file.fieldname + "-" + Date.now() + path.extname(file.original))
+        cb(null, file.fieldname + "-" + Date.now() + path.extname(file.originalname))
     }
 })
 
@@ -21,7 +21,7 @@ let upload = multer({storage: storage})
 //edicion de usuarios
 router.get('/profile/:id',usersControllerr.profile);  
 router.get('/profile/edit/:userId',usersControllerr.profileEdit);
-router.post('/profile/edit',usersControllerr.profileUpdate);
+router.post('/profile/edit',usersControllerr.profileUpdate);       ///poner upload
 // router.get('/add',usersControllerr.profileEdit); 
 
 //login y log out
@@ -31,7 +31,7 @@ router.get('/logout',registerControllerr.Logout)
 
 //register
 router.get('/register',registerControllerr.register);
-router.post('/register',upload.single('image_users'),registerControllerr.store);
+router.post('/register',upload.single('image'),registerControllerr.store);
 router.post('/register',registerControllerr.store);
 
 

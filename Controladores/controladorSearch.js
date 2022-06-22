@@ -1,5 +1,6 @@
 const db = require('../db/models/index.js');
 let resultadosR= require('../db/models/Product.js');
+const op = db.Sequelize.Op;
 
 const searchProducts = {
 
@@ -18,13 +19,12 @@ index: function (req, res) {
 db.Product.findAll({   
      where: {
      [op.or]:[
-{nombreDelProducto:{[op.like]:"%"+ product +"%",}},
-{descripcion:{[op.like]:"%"+ product +"%",}},
-{users_id:{[op.like]:"%"+ product +"%",}},
+{name_product:{[op.like]:"%"+ product +"%",}},
+{product_description:{[op.like]:"%"+ product +"%",}}
      ]
     },
     order:[
-        ['name','ASC']
+        ['name_product','ASC']
     ],
     include: [
         {association:'users'},
@@ -33,7 +33,7 @@ db.Product.findAll({
 
 })
 .then((data)=> {
-return res.render('searchResults',{data})
+return res.render('searchResults',{searchResults:data})
 
 }) 
 .catch((err)=>{
