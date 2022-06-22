@@ -6,19 +6,19 @@
 	<!-- product detail -->
 	<div class="container products-wrapper">
         <div class="d-flex align-items-center">
-            <h2 class="products-title"> <%= producto.producto %> </h2>
+            <h2 class="products-title"> <%= products.name_product %> </h2>
 			<div class="usuario_producto">
-				<a href="/profile/ <%= products.users.id %> "> <h3 style="margin-top: 3px; font-size: 16px;">  <%= producto.users.name %></h3></a>  
+				 <h3 style="margin-top: 3px; font-size: 16px;">  <%= products.users.nombre_users %></h3>  
 			</div>
             
         </div>
         <div class="product-detail">
             <div class="row">
                 <article class="col-12 col-lg-8 product-detail-info">
-                    <img src="/images/<%= producto.image %>" alt="" class="product-detail-img">
-                    <p > Descripcion del producto: <%= producto.descripcion %> </p>
-					<p > Propietario: <a href="/users/profile/<%= producto.users.id %> "><%= producto.users.name %></a> </p>
-					<p > Ante cualquier consulta: <%= producto.users.email %> </p>
+                    <img src="/images/<%= products.image_product %>" alt="" class="product-detail-img">
+                    <p > Descripcion del producto: <%= products.product_description %> </p>
+					<p > Propietario: <a href="/users/profile/<%= products.users.id %> "><%= products.users.nombre_users%></a> </p>
+					<p > Ante cualquier consulta: <%= products.users.email %> </p>
 					
                 </article>
                 <div class="col-12 col-lg-4">
@@ -27,25 +27,25 @@
 
 						<div class="col-12 col-lg-4">
 							<section >
-								<% for (let i=0; i < producto.comentario.length; i++) {%>
+								<% for (let i=0; i < products.comentarios.length; i++) {%>
 								<article>
 									<div class="data">
-										<p class="user"><%= producto.comentario[i].comentario%></p>
+										<p class="user"><%= products.comentarios[i]texto_comentario%></p>
 									</div>
 								</article>
 							</section>
 							<%} %>
 
-							<form class="form" action="/comentarios/comentar/<%= producto.id %> " method="POST">
+							<form class="form" action="/comentarios/comentar/<%= products.id %> " method="POST">
 								<input class="form-input" type="text" value="" placeholder="Agregar comentario" name="comentario">
 								<button type="submit" class="buy-now-button">AGREGAR COMENTARIO</button>
 							</form>
 						</div>
-						<% if (locals.user != undefined && locals.users.id == producto.users.id) { %>
-							<form class="form" action="/producto/borrar/<%= producto.id %>" method="POST">
+						<% if (locals.user != undefined && locals.users.id == products.users.id) { %>
+							<form class="form" action="/producto/borrar/<%= products.id %>" method="POST">
 								<button type="submit" class="buy-now-button">ELIMINAR PUBLICACIÓN</button>
 							</form>
-							<form class="form" action="/producto/editar/<%= producto.id %>" method="GET">
+							<form class="form" action="/producto/editar/<%= products.id %>" method="GET">
 								<button type="submit" class="buy-now-button">EDITAR PUBLICACIÓN</button>
 							</form>
 						<% } %>

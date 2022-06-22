@@ -18,7 +18,7 @@ const productoController = {
 
         Product.findByPk(id,{ 
             include: [{association: 'users'},
-                    {association: 'comentario',
+                    {association: 'comentarios',
                     include: [{association: 'users'}]}],
                     order: [[ "createdAt" , "DESC"]]
         })

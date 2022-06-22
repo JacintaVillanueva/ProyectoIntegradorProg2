@@ -2,8 +2,17 @@
 	
 	
 	<!-- Header -->
-	<%- include('./partials/headerLogueado.ejs') %>
+	
 	<!-- /Header -->
+
+	<% if (locals.user != undefined){ %> 
+		<%- include('partials/headerLogueado') %> 
+	<% }else { %> 
+		<%- include('partials/header') %> 
+	<% } %>  
+
+
+
 	 
 <!-- Banner -->
 	<div class="banner">

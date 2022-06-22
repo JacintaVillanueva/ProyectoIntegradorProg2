@@ -30,7 +30,6 @@ image_product: {
 
 created_at: {
     type: DataTypes.DATE,
-    allowNull: false
 },
 
 updated_at: {
