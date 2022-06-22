@@ -6,18 +6,18 @@
 	<!-- product detail -->
 	<div class="container products-wrapper">
         <div class="d-flex align-items-center">
-            <h2 class="products-title"> <%= products.producto %> </h2>
+            <h2 class="products-title"> <%= products.name_product %> </h2>
 			<div class="usuario_producto">
-				<a href="/profile/ <%= products.users.id %> "> <h3 style="margin-top: 3px; font-size: 16px;">  <%= products.users.name %></h3></a>  
+				 <h3 style="margin-top: 3px; font-size: 16px;">  <%= products.users.nombre_name %></h3></a>  
 			</div>
             
         </div>
         <div class="product-detail">
             <div class="row">
                 <article class="col-12 col-lg-8 product-detail-info">
-                    <img src="/images/<%= products.image %>" alt="" class="product-detail-img">
-                    <p > Descripcion del producto: <%= products.descripcion %> </p>
-					<p > Propietario: <a href="/users/profile/<%= products.users.id %> "><%= products.users.name %></a> </p>
+                    <img src="/images/<%= products.image_product %>" alt="" class="product-detail-img">
+                    <p > Descripcion del producto: <%= products.product_description %> </p>
+					<p > Propietario: <a href="/users/profile/<%= products.users.id %> "><%= products.users.nombre_users %></a> </p>
 					<p > Ante cualquier consulta: <%= products.users.email %> </p>
 					
                 </article>
@@ -27,10 +27,10 @@
 
 						<div class="col-12 col-lg-4">
 							<section >
-								<% for (let i=0; i < products.comentario.length; i++) {%>
+								<% for (let i=0; i < products.comentarios.length; i++) {%>
 								<article>
 									<div class="data">
-										<p class="user"><%= products.comentario[i].comentario%></p>
+										<p class="user"><%= products.comentarios[i].texto_comentario%></p>
 									</div>
 								</article>
 							</section>
