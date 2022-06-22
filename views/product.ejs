@@ -17,7 +17,7 @@
                 <article class="col-12 col-lg-8 product-detail-info">
                     <img src="/images/<%= products.image_product %>" alt="" class="product-detail-img">
                     <p > Descripcion del producto: <%= products.product_description %> </p>
-					<p > Propietario: <a href="/users/profile/<%= products.users.id %> "><%= products.users.nombre_users%></a> </p>
+					<p > Propietario:<%= products.users.nombre_users%></p>
 					<p > Ante cualquier consulta: <%= products.users.email %> </p>
 					
                 </article>
@@ -41,7 +41,7 @@
 								<button type="submit" class="buy-now-button">AGREGAR COMENTARIO</button>
 							</form>
 						</div>
-						<% if (locals.user != undefined && locals.users.id == products.users.id) { %>
+						<% if (locals.users != undefined && locals.users.id == products.users.id) { %>
 							<form class="form" action="/producto/borrar/<%= products.id %>" method="POST">
 								<button type="submit" class="buy-now-button">ELIMINAR PUBLICACIÓN</button>
 							</form>

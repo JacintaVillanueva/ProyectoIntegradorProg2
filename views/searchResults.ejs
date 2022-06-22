@@ -1,6 +1,9 @@
-<!-- Header -->
-<%- include('./partials/headerLogueado.ejs') %>
-<!-- /Header -->
+
+	<% if (locals.user != undefined){ %> 
+		<%- include('partials/headerLogueado') %> 
+	<% }else { %> 
+		<%- include('partials/header') %> 
+	<% } %>  
 
 
 
@@ -15,12 +18,12 @@
 			<section class="product-box">
 				<a href="/productos/especifico/<%= searchResults[i].id %>">
 					<figure class="product-box_image">
-						<img class="imagen" src="<%=searchResults[i].imagen %>" alt="cafetera moulinex">
+						<img class="imagen" src="<%=searchResults[i].image_product %>" alt="cafetera moulinex">
 					</figure>
 					<article class="product-box_data">
-						<h2> <%= searchResults[i].nombreDelProducto %></h2>
-						<p><%= searchResults[i].descripcion %></p>
-						<p><%= searchResults[i].fechaDeCarga %></p>
+						<h2> <%= searchResults[i].name_product %></h2>
+						<p><%= searchResults[i].product_description %></p>
+						<p><%= searchResults[i].created_at %></p>
 					</article>
 				</a>
 			</section>

@@ -11,27 +11,27 @@
 			 
 				<form action="/users/profile/edit" method="POST">
 					<div>
-						<input type="text" name="name" placeholder="nombre" value="<%=user.nombre_users%>">
+						<input type="text" name="name" placeholder="nombre" value="<%=userEdit.nombre_users%>">
 					</div>
 			
 					<div>
-						<input type="text" name="apellido" placeholder="apellido" value="<%=user.apellido%>">
+						<input type="text" name="apellido" placeholder="apellido" value="<%=userEdit.apellido%>">
 					</div>
 			
 					<div>
-						<input type="email" name="email" placeholder="email" value="<%=user.email%>">
+						<input type="email" name="email" placeholder="email" value="<%=userEdit.email%>">
 					</div>
 			
 					<div>
-						<input type="password" name="password" placeholder="password" value="<%=user.password%>">
+						<input type="password" name="password" placeholder="password" value="">
 					</div>
 			
 					<div>
-						<input type="date" name="fecha" placeholder="Fecha de nacimientos" value="<%=user.fecha_nacimiento%>">
+						<input type="date" name="fecha" placeholder="Fecha de nacimientos" value="<%=userEdit.fecha_nacimiento%>">
 					</div>
 			
 					<div>
-						<input type="text" name="dni" placeholder="DNI" value="<%=user.numero_documento%>">
+						<input type="text" name="dni" placeholder="DNI" value="<%=userEdit.numero_documento%>">
 					</div>
 					<div>
 						<label for="email">Foto de perfil: </label>
@@ -50,8 +50,16 @@
 					
 					 
 				</form>
+
+</div>
+</div>
+<img src="/images/avatars/<%= userEdit.image_users %>" alt="">
+
+
+
+
 			</body>
-	<!---> footer -->
+	<!-- footer -->
 	<%- include('./partials/footer.ejs') %>
 	<!-- /footer -->
 
