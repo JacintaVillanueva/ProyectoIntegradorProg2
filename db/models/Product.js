@@ -54,10 +54,10 @@ Product.associate = function(models){
     Product.belongsTo(models.User, { 
         as:'users',
         foreignKey: 'id_users'
-    })
+    }),
     Product.hasMany(models.comentario,{
         as:'comentarios',
-        foreingKey:'id_product'
+        foreingKey:'product_id'
     })
    
     } 

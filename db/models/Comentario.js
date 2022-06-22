@@ -11,7 +11,7 @@ id: {
     type: DataTypes.INTEGER,
     allowNull: false
 },
-id_product: {
+product_id: {
     type: DataTypes.INTEGER,
     allowNull: false
 },
@@ -50,10 +50,10 @@ comentario.associate = function(models){
     comentario.belongsTo(models.User, {
         as:'users',
         foreignKey: 'id_users'
-    })
+    }),
     comentario.belongsTo(models.Product, {
         as:'products',
-        foreignKey: 'id_product'
+        foreignKey: 'product_id'
     })
 }
 
